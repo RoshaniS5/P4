@@ -1,0 +1,2 @@
+roshaniS -- 2022-05-24 19:01
+  - added app folder with __init__.py (just has some initial code, nothing too fancy)
