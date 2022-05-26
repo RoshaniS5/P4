@@ -1,2 +1,5 @@
 roshaniS -- 2022-05-24 19:01
   - added app folder with __init__.py (just has some initial code, nothing too fancy)
+
+roshaniS, yuqingW, angelaZ, hebeH -- 2022-05-25 22:26
+    - Collaborated on making the first design doc for this project
