@@ -1,0 +1,15 @@
+/* 
+Sleepy Starfish | Roshani Shrestha, Yuqing Wu, Angela Zhang, Hebe Huang
+SoftDev Pd2
+P04 -- Project Iris | style.css 
+2022-05-24
+*/
+
+.nameOfPage {
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.notesArea {
+    text-align: center;
+}
