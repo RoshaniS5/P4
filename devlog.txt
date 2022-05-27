@@ -13,3 +13,6 @@ roshaniS, yuqingW, angelaZ, hebeH -- 2022-05-26 21:03
     - Elaborated on how the drawings will be separate from the text 
     - Elaborated on how we plan to save drawings
     - Elaborated on commenting system in "Additional Possible Features"
+
+roshaniS -- 2022-05-26 22:25
+  - Updated readme with project title, description, and task division
