@@ -16,3 +16,6 @@ roshaniS, yuqingW, angelaZ, hebeH -- 2022-05-26 21:03
 
 roshaniS -- 2022-05-26 22:25
   - Updated readme with project title, description, and task division
+
+angelaZ -- 2022-05-27 09:25
+  - Added basic html and css.

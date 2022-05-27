@@ -5,11 +5,13 @@ P04 -- Project Iris | style.css
 2022-05-24
 */
 
-.nameOfPage {
-    margin-top: 5px;
+div.nameOfPage {
+    color: blue;
     font-style: italic;
+    text-align: center;
+    margin-top: 40px;
 }
 
-.notesArea {
-    text-align: center;
+div.noteArea {
+    padding-left: 10px;
 }
