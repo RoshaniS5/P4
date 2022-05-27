@@ -3,3 +3,13 @@ roshaniS -- 2022-05-24 19:01
 
 roshaniS, yuqingW, angelaZ, hebeH -- 2022-05-25 22:26
     - Collaborated on making the first design doc for this project
+
+roshaniS, yuqingW, angelaZ, hebeH -- 2022-05-26 21:03
+  - Collaborated on revising the design doc
+  - Changes:
+    - Removed login and register functionalities (including removal from program components, site map, and task division)
+    - Removed unnecessary tables, leaving only the SUBMISSIONS table
+    - Changed data type for time submitted in the SUBMISSIONS table
+    - Elaborated on how the drawings will be separate from the text 
+    - Elaborated on how we plan to save drawings
+    - Elaborated on commenting system in "Additional Possible Features"
