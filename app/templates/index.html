@@ -17,8 +17,21 @@ P04 -- Project Iris | Home Page
             <h1> HOMEPAGE </h1>
         </div>
 
+        <form action="search" method='POST'>
+            <input type = "search" name = "query">
+            <button>Search</button>
+        </form>
+
         <div class = "noteArea">
             <h2> this is where the notes go :0</h2>
+            {% for note in notes %}
+                {{note[0]}} <br>
+                {{note[2]}} <br>
+                {{note[3]}} <br>
+                {{note[4]}} <br>
+                {{note[5]}} <br>
+                <br>
+            {% endfor %}
         </div>
     </body>
 </html>

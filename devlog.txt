@@ -22,3 +22,8 @@ angelaZ -- 2022-05-27 09:25
   
 roshaniS -- 2022-05-27 17:09
   - Added basic python/flask elements 
+
+roshaniS -- 2022-05-30 19:38
+  - Added database.py, created submissions table, created some add and get functions for the database
+  - Displayed information from submitted notes to the home page
+  - Added a functioning search bar to the home page 

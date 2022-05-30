@@ -5,13 +5,17 @@
 
 from flask import Flask, render_template, request, session, redirect, url_for
 import sqlite3
+from database import *
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
         '''Displays the home page.'''
-        return render_template('index.html')
+        # addSubmission("Roshani", "green", "heyy", "image", "sometime")
+        # addSubmission("Someone", "green", "heyy", "image", "sometime")
+        totalList = getAllSubmissions()
+        return render_template('index.html', notes = totalList)
 
 @app.route("/time")
 def sortByTime():
@@ -23,10 +27,12 @@ def sortByName():
         '''Sorts notes in alphabetical order by name.'''
         return render_template('index.html')
 
-@app.route("/search")
+@app.route("/search", methods=['GET', 'POST'])
 def search():
         '''Displays all notes with the specified name as the recipient'''
-        return render_template('index.html')
+        name = request.form.get('query')
+        matches = getNamedSubmissions(name)
+        return render_template('index.html', notes = matches)
 
 @app.route("/about")
 def about():
