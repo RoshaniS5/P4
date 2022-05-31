@@ -14,4 +14,10 @@ div.nameOfPage {
 
 div.noteArea {
     padding-left: 10px;
+    background-color: lavender;
+}
+
+div.bgcolor {
+    background-color: lightblue;
+
 }
