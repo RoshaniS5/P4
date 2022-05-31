@@ -44,10 +44,20 @@ def notes():
         '''Displays the notes page, which allows the user to submit a note.'''
         return render_template('canvas.html')
 
-@app.route("/send")
+@app.route("/send", methods=['GET', 'POST'])
 def send():
         '''Add submission.'''
-        return redirect("/")
+        try:
+                name = request.form.get('person')
+                msg = request.form.get('message')
+        except:
+                name = "person"
+                msg = "hello there"
+        color = "blue" # random color for testing purposes
+        img = "image" # random for testing purposes
+        time = "sometime" # random time for testing purposes
+        addSubmission(name, color, msg, img, time)
+        return redirect("/") 
 
 @app.route("/note")
 def note():
