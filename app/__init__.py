@@ -30,7 +30,7 @@ def sortByName():
 @app.route("/search", methods=['GET', 'POST'])
 def search():
         '''Displays all notes with the specified name as the recipient'''
-        name = request.form.get('query')
+        name = request.form['query']
         matches = getNamedSubmissions(name)
         return render_template('index.html', notes = matches)
 
@@ -47,16 +47,19 @@ def notes():
 @app.route("/send", methods=['GET', 'POST'])
 def send():
         '''Add submission.'''
-        try:
-                name = request.form.get('person')
-                msg = request.form.get('message')
-        except:
-                name = "person"
-                msg = "hello there"
         color = "blue" # random color for testing purposes
         img = "image" # random for testing purposes
         time = "sometime" # random time for testing purposes
-        addSubmission(name, color, msg, img, time)
+        try:
+                name = request.args.get('person')
+                msg = request.args.get('message')
+                addSubmission(name, color, msg, img, time)
+        except:
+                name = "person"
+                msg = "hello there"
+                addSubmission(name, color, msg, img, time)
+        print(request.form.get('person'))
+        print(request.form.get('message'))
         return redirect("/") 
 
 @app.route("/note")

@@ -31,3 +31,7 @@ roshaniS -- 2022-05-30 19:38
 roshaniS -- 2022-05-31 09:34
   - Worked on notes submissions on canvas.html and __init__.py
   - Doesn't work at the moment
+
+roshaniS -- 2022-06-01 16:58
+  - Fixed notes submissions
+  - Doesn't take in color background, image, or time yet
