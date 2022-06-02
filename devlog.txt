@@ -35,3 +35,7 @@ roshaniS -- 2022-05-31 09:34
 roshaniS -- 2022-06-01 16:58
   - Fixed notes submissions
   - Doesn't take in color background, image, or time yet
+
+roshaniS -- 2022-06-02 00:07
+  - Added errors to pages
+  - Added buttons for individual notes on home page (the buttons don't fully work yet, gives an error when clicked on)

@@ -16,6 +16,7 @@ P04 -- Project Iris | Home Page
     <div class = "bgcolor">
 
         <body>
+            {{error}}
             <div class = "nameOfPage">
                 <h1> HOMEPAGE </h1>
             </div>
@@ -27,12 +28,17 @@ P04 -- Project Iris | Home Page
     
             <div class = "noteArea">
                 <h2> this is where the notes go :0</h2>
+                {% set i = 0 %}
                 {% for note in notes %}
+                    {% set i = i + 1 %}
                     {{note[0]}} <br>
                     {{note[2]}} <br>
                     {{note[3]}} <br>
                     {{note[4]}} <br>
                     {{note[5]}} <br>
+                    <form action="note" method='GET'>
+                        <input type="submit" name="whichnote" value={{i}}>
+                    </form>
                     <br>
                 {% endfor %}
             </div>

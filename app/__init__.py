@@ -30,9 +30,13 @@ def sortByName():
 @app.route("/search", methods=['GET', 'POST'])
 def search():
         '''Displays all notes with the specified name as the recipient'''
-        name = request.form['query']
-        matches = getNamedSubmissions(name)
-        return render_template('index.html', notes = matches)
+        try:
+                name = request.form['query']
+                matches = getNamedSubmissions(name)
+                return render_template('index.html', notes = matches)
+        except:
+                return render_template('index.html', error="Some unknown error has occurred. Please try again.")
+
 
 @app.route("/about")
 def about():
@@ -52,20 +56,25 @@ def send():
         time = "sometime" # random time for testing purposes
         try:
                 name = request.args.get('person')
+                if len(name) == 0:
+                        return render_template('canvas.html', error="You didn't enter a recipient! Please enter a name and try again.")
                 msg = request.args.get('message')
                 addSubmission(name, color, msg, img, time)
         except:
-                name = "person"
-                msg = "hello there"
-                addSubmission(name, color, msg, img, time)
-        print(request.form.get('person'))
-        print(request.form.get('message'))
+                return render_template('canvas.html', error="Some unknown error has occurred. Please try again.")
+        # print(request.form.get('person'))
+        # print(request.form.get('message'))
         return redirect("/") 
 
 @app.route("/note")
 def note():
         '''Displays the note page, which allows the user to view an individual note.'''
-        return render_template('note.html')
+        totalList = getAllSubmissions()
+        try:
+                which = request.args.get('whichnote')
+                return render_template('note.html', note=totalList[which])
+        except:
+                return render_template('index.html', error="Some unknown error has occurred. Please try again.")
 
 if __name__ == "__main__":
         app.debug = True
