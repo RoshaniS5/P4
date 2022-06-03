@@ -20,12 +20,12 @@ P04 -- Project Iris | Home Page
             <div class = "nameOfPage">
                 <h1> HOMEPAGE </h1>
             </div>
-    
+
             <form action="search" method='POST'>
                 <input type = "search" name = "query">
                 <button>Search</button>
             </form>
-    
+
             <div class = "noteArea">
                 <h2> this is where the notes go :0</h2>
                 {% set i = 0 %}
@@ -42,6 +42,9 @@ P04 -- Project Iris | Home Page
                     <br>
                 {% endfor %}
             </div>
+            <form id = "Align" action="/newNote" method='GET'>
+                <button type="submit" formaction="/newNote">New Note</button>
+            </form>
         </body>
     </div>
 

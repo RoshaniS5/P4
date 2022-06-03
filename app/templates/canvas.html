@@ -19,17 +19,20 @@ P04 -- Project Iris | Home Page
 
   <body>
     {{error}}
-    <form action="send" method='GET'>
-      <input type="text" name="person">
-      <script src="../static/js/canvas.js"></script>
 
+    <canvas id="can" onclick="blah()" width="500" height="500">
+      ...
+    </canvas>
+
+    <form action="/send"  id="data" method='GET'>
+      <input type="text" name="person">
+      <br>
       <input type="text" name="message">
-      <button>Submit</button>
+      <br>
+      <button id="finishedNote">Submit</button>
     </form>
 
-      <canvas id="can" onclick="blah()" width="500" height="500">
-        ...
-      </canvas>
+    <script src="../static/js/canvas.js"></script>
 
   </body>
 </html>
