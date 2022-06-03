@@ -39,3 +39,6 @@ roshaniS -- 2022-06-01 16:58
 roshaniS -- 2022-06-02 00:07
   - Added errors to pages
   - Added buttons for individual notes on home page (the buttons don't fully work yet, gives an error when clicked on)
+
+roshaniS -- 2022-06-02 23:30
+  - Made a very small change so that the canvas shows up

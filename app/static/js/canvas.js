@@ -17,7 +17,7 @@
 // module.exports = a;
 function blah(){
   console.log("hdskjfshkfh")
-  c = document.getElementById("can");
+  var c = document.getElementById("can");
   console.log(c);
   ctx=c.getContext("2d");
   ctx.fillStyle ="blue"
