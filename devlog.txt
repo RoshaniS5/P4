@@ -51,3 +51,8 @@ roshaniS -- 2022-06-05 01:02
   - Added submission numbers
   - Added functionality to buttons on home page
   - Organized the home and individual note pages 
+
+roshaniS -- 2022-06-05 17:31
+  - Added drawing functionality to canvas
+  - Worked on turning canvas to a usable data URL upon submission (not working yet, keeps returning None)
+  - Made message textbox larger by changing it into <textarea>

@@ -52,13 +52,14 @@ def notes():
 def send():
         '''Add submission.'''
         color = "blue" # random color for testing purposes
-        img = "image" # random for testing purposes
+        # img = "image" # random for testing purposes
         time = "sometime" # random time for testing purposes
         try:
                 name = request.args.get('person')
                 if len(name) == 0:
                         return render_template('canvas.html', error="You didn't enter a recipient! Please enter a name and try again.")
                 msg = request.args.get('message')
+                img = request.args.get('image')
                 addSubmission(name, color, msg, img, time)
                 # print(name + color + msg + img + time)
         except:
@@ -79,6 +80,7 @@ def note():
                 # which4 = request.args.get('4')
                 whichnum = request.args.get('num')
                 which = getSubmission(whichnum)
+                # print(which[0][5])
                 return render_template('note.html', note=which[0])
         except:
                 return render_template('index.html', error="Some unknown error has occurred. Please try again.")

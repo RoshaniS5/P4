@@ -20,15 +20,17 @@ P04 -- Project Iris | Home Page
   <body>
     {{error}}
 
-    <canvas id="can" onclick="blah()" width="500" height="500">
-      ...
-    </canvas>
-
     <form action="/send"  id="data" method='GET'>
-      <input type="text" name="person">
+      <canvas id="can" width="500" height="500">
+        <!-- onclick="blah()" -->
+        ...
+      </canvas>
       <br>
-      <input type="text" name="message">
-      <br>
+      To: <input type="text" name="person">
+      <br><br>
+      Message: <br>
+      <textarea name="message"></textarea>
+      <br><br>
       <button id="finishedNote">Submit</button>
     </form>
 
