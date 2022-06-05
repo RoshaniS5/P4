@@ -71,8 +71,14 @@ def note():
         '''Displays the note page, which allows the user to view an individual note.'''
         totalList = getAllSubmissions()
         try:
-                which = request.args.get('whichnote')
-                return render_template('note.html', note=totalList[which])
+                # which0 = request.args.get('0')
+                # which1 = request.args.get('1')
+                # which2 = request.args.get('2')
+                # which3 = request.args.get('3')
+                # which4 = request.args.get('4')
+                whichnum = request.args.get('num')
+                which = getSubmission(whichnum)
+                return render_template('note.html', note=which[0])
         except:
                 return render_template('index.html', error="Some unknown error has occurred. Please try again.")
 

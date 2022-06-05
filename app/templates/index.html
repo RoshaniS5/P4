@@ -28,16 +28,27 @@ P04 -- Project Iris | Home Page
     
             <div class = "noteArea">
                 <h2> this is where the notes go :0</h2>
-                {% set i = 0 %}
                 {% for note in notes %}
-                    {% set i = i + 1 %}
-                    {{note[0]}} <br>
+                    <!-- {{note[0]}} <br>
                     {{note[2]}} <br>
                     {{note[3]}} <br>
                     {{note[4]}} <br>
-                    {{note[5]}} <br>
+                    {{note[5]}} <br> -->
                     <form action="note" method='GET'>
-                        <input type="submit" name="whichnote" value={{i}}>
+                        <!-- <input type="hidden" name="0" value={{note[0]}}>
+                        <input type="hidden" name="1" value={{note[2]}}>
+                        <input type="hidden" name="2" value={{note[3]}}>
+                        <input type="hidden" name="3" value={{note[4]}}>
+                        <input type="hidden" name="4" value={{note[5]}}> -->
+                        <input type="hidden" name="num" value={{note[0]}}>
+                        <button> 
+                            {{note[0]}} <br>
+                            {{note[1]}} <br>
+                            {{note[3]}} <br>
+                            {{note[4]}} <br>
+                            {{note[5]}} <br>
+                            {{note[6]}} <br>
+                        </button>
                     </form>
                     <br>
                 {% endfor %}
