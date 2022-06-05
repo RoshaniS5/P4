@@ -22,6 +22,10 @@ div.bgcolor {
 
 }
 
+div.mainnote {
+    padding: 5px;
+}
+
 canvas{
     border:1px solid 
 }

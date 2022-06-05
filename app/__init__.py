@@ -60,7 +60,7 @@ def send():
                         return render_template('canvas.html', error="You didn't enter a recipient! Please enter a name and try again.")
                 msg = request.args.get('message')
                 addSubmission(name, color, msg, img, time)
-                print(name + color + msg + img + time)
+                # print(name + color + msg + img + time)
         except:
                 return render_template('canvas.html', error="Some unknown error has occurred. Please try again.")
         # print(request.form.get('person'))

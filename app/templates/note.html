@@ -16,21 +16,29 @@ P04 -- Project Iris | Individual Note Page
     <div class="bgcolor">
         <body>
             <div class = "nameOfPage">
-                <h1> Note {{number}} in {{note[0]}}</h1>
+                <h1> Note {{note[0]}} for {{note[1]}}</h1>
             </div>
     
-            <form action="search" method='POST'>
+            <!-- <form action="search" method='POST'>
                 <input type = "search" name = "query">
                 <button>Search</button>
-            </form>
+            </form> -->
     
             <div class = "noteArea">
-                <h2> this is an Individual note :D </h2>
-                {{note[0]}} <br>
-                {{note[2]}} <br>
-                {{note[3]}} <br>
-                {{note[4]}} <br>
-                {{note[5]}} <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            Submission #{{note[0]}} <br>
+                            To: {{note[1]}} <br>
+                            <!-- {{note[3]}} <br> -->
+                            <div class="mainnote" style="background-color: {{note[3]}};">
+                                {{note[4]}} <br>
+                                {{note[5]}} <br>
+                            </div>
+                            Posted on {{note[6]}}
+                        </div>
+                    </div>
+                </div>
             </div>
         </body>
     

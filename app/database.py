@@ -5,16 +5,14 @@ DB_FILE = "discobandit.db"
 db = sqlite3.connect(DB_FILE, check_same_thread=False)
 c = db.cursor()
 
-submissions = 0
-
 def createTable():
     '''Creates the table for submissions.'''
     c.execute("CREATE TABLE IF NOT EXISTS submissions (number INTEGER, recipient TEXT, lowercase_recipient TEXT, colorbg TEXT, message TEXT, picture TEXT, time TEXT);")
 
 def addSubmission(name, color, msg, img, timeSent):
     '''Adds a submission to the database.'''
-    submissions += 1
-    c.execute("INSERT INTO submissions VALUES (?, ?, ?, ?, ?, ?, ?);", (submissions, name, name.lower(), color, msg, img, timeSent))
+    all = getAllSubmissions()
+    c.execute("INSERT INTO submissions VALUES (?, ?, ?, ?, ?, ?, ?);", (len(all) + 1, name, name.lower(), color, msg, img, timeSent))
     db.commit()
 
 def getAllSubmissions():

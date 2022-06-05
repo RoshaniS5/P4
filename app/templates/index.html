@@ -28,30 +28,61 @@ P04 -- Project Iris | Home Page
 
             <div class = "noteArea">
                 <h2> this is where the notes go :0</h2>
-                {% for note in notes %}
-                    <!-- {{note[0]}} <br>
-                    {{note[2]}} <br>
-                    {{note[3]}} <br>
-                    {{note[4]}} <br>
-                    {{note[5]}} <br> -->
-                    <form action="note" method='GET'>
-                        <!-- <input type="hidden" name="0" value={{note[0]}}>
-                        <input type="hidden" name="1" value={{note[2]}}>
-                        <input type="hidden" name="2" value={{note[3]}}>
-                        <input type="hidden" name="3" value={{note[4]}}>
-                        <input type="hidden" name="4" value={{note[5]}}> -->
-                        <input type="hidden" name="num" value={{note[0]}}>
-                        <button> 
-                            {{note[0]}} <br>
-                            {{note[1]}} <br>
-                            {{note[3]}} <br>
-                            {{note[4]}} <br>
-                            {{note[5]}} <br>
-                            {{note[6]}} <br>
-                        </button>
-                    </form>
-                    <br>
-                {% endfor %}
+                <div class="container">
+                    {% for note in notes %}
+                        {% if note[0] % 3 == 1 %}
+                            <div class="row">
+                                <div class="col">
+                                    <form action="note" method='GET'>
+                                        <input type="hidden" name="num" value={{note[0]}}>
+                                        <button> 
+                                            Submission #{{note[0]}} <br>
+                                            To: {{note[1]}} <br>
+                                            <!-- {{note[3]}} <br> -->
+                                            <div class="mainnote" style="background-color: {{note[3]}};">
+                                                {{note[4]}} <br>
+                                                {{note[5]}} <br>
+                                            </div>
+                                            Posted on {{note[6]}}
+                                        </button>
+                                    </form>
+                                </div>
+                        {% elif note[0] % 3 == 0 or note[0] == notes|length %}
+                                <div class="col">
+                                    <form action="note" method='GET'>
+                                        <input type="hidden" name="num" value={{note[0]}}>
+                                        <button> 
+                                            Submission #{{note[0]}} <br>
+                                            To: {{note[1]}} <br>
+                                            <!-- {{note[3]}} <br> -->
+                                            <div class="mainnote" style="background-color: {{note[3]}};">
+                                                {{note[4]}} <br>
+                                                {{note[5]}} <br>
+                                            </div>
+                                            Posted on {{note[6]}}
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="col">
+                                <form action="note" method='GET'>
+                                    <input type="hidden" name="num" value={{note[0]}}>
+                                    <button> 
+                                        Submission #{{note[0]}} <br>
+                                        To: {{note[1]}} <br>
+                                        <!-- {{note[3]}} <br> -->
+                                        <div class="mainnote" style="background-color: {{note[3]}};">
+                                            {{note[4]}} <br>
+                                            {{note[5]}} <br>
+                                        </div>
+                                        Posted on {{note[6]}}
+                                    </button>
+                                </form>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
             </div>
             <form id = "Align" action="/newNote" method='GET'>
                 <button type="submit" formaction="/newNote">New Note</button>
