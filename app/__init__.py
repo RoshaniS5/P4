@@ -43,7 +43,7 @@ def about():
         '''Displays the about page.'''
         return render_template('about.html')
 
-@app.route("/notes")
+@app.route("/newNote")
 def notes():
         '''Displays the notes page, which allows the user to submit a note.'''
         return render_template('canvas.html')
@@ -60,11 +60,12 @@ def send():
                         return render_template('canvas.html', error="You didn't enter a recipient! Please enter a name and try again.")
                 msg = request.args.get('message')
                 addSubmission(name, color, msg, img, time)
+                print(name + color + msg + img + time)
         except:
                 return render_template('canvas.html', error="Some unknown error has occurred. Please try again.")
         # print(request.form.get('person'))
         # print(request.form.get('message'))
-        return redirect("/") 
+        return redirect("/")
 
 @app.route("/note")
 def note():

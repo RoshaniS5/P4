@@ -22,4 +22,17 @@ function blah(){
   ctx=c.getContext("2d");
   ctx.fillStyle ="blue"
   ctx.fillRect(100,100,100,100);
+
 }
+
+var submit = document.getElementById("finishedNote");
+submit.addEventListener("click", function(){
+  var dataURL = canvas.toDataUrl();
+
+  let results = document.createElement("form");
+  results.setAttribute("method", "POST");
+  results.setAttribute("action", "/send");
+
+  imgSave = document.createElement("div");
+  imgSave.innerHTML = dataURL;
+})
