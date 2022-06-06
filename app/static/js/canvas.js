@@ -30,6 +30,9 @@ penPicker.addEventListener("input", function(){
   ctx.strokeStyle = penPicker.value
 })
 var bkgdPicker = document.getElementById("bkgdpicker");
+ctx1.rect(0, 0, bg.width, bg.height);
+ctx1.fillStyle = bkgdPicker.value;
+ctx1.fill();
 bkgdPicker.addEventListener("input", function(){
   ctx1.rect(0, 0, bg.width, bg.height);
   ctx1.fillStyle = bkgdPicker.value;

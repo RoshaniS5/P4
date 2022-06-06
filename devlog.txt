@@ -56,3 +56,8 @@ roshaniS -- 2022-06-05 17:31
   - Added drawing functionality to canvas
   - Worked on turning canvas to a usable data URL upon submission (not working yet, keeps returning None)
   - Made message textbox larger by changing it into <textarea>
+
+  angelaZ -- 2022-06-06 22:54
+  - Added completed Navigation Bar with working href links that is centered on top with a centered search bar
+  - Changed some positioning for margins, and moved the canvas when note making into the middle
+  - Edited some colors and made the unsent project link in the "about.html" clickable

@@ -7,7 +7,13 @@ P04 -- Project Iris | Home Page
 
 <!DOCTYPE html>
 <html>
+
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+
     <title> Canvas </title>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -18,47 +24,57 @@ P04 -- Project Iris | Home Page
   </head>
 
   <body>
-    {{error}}
-    <table>
-    <tr>
-    <td>
-    <form id="data" method='GET'>
-      <label for="bkgdpicker">Background Color Picker:</label>
-      <input type="color" id="bkgdpicker" value="#ffffff">
-      <br>
-      <label for="penpicker">Pen Color Picker:</label>
-      <input type="color" id="penpicker">
-      <br>
-      <label for="sizepicker">Pen/Eraser Size Picker:<br></label>
-      <input type="range" min="1" max="25" value="2" id="sizepicker" style="width: 80%">
-      <br>
-      <form id="penoreraser">
-        <input type="radio" id="pen" name="todrawornottd" value="Pen" checked>
-        <label for="pen">Pen</label><br>
-        <input type="radio" id="eraser" name="todrawornottd" value="Eraser">
-        <label for="eraser">Eraser</label><br>
-      </form>
-      <br>
-      To: <br><input type="text" name="person" id="person">
-      <br><br>
-      Message: <br>
-      <textarea name="message" id="message"></textarea>
-      <br><br>
-      <button type="button" id="finishedNote">Submit</button>
-      <!-- type="button" is necessary so this button doesn't submit the form 
-      this button will trigger js to make and submit another form -->
-    </form>
+    <nav class="irisNav">
+      <nav class="nav nav-pills nav-justified justify-content-center">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" id="active" href="/newNote">Make Note</a>
+          <a class="nav-link" href="/about">About</a>
+    </nav>
+    <div class="bgcolor">
+      <div class="row d-flex justify-content-center">
+        {{error}}
+        <table>
+          <tr>
+          <td class="canvTD">
+          <form id="data" method='GET'>
+            <label for="bkgdpicker">Background Color Picker:</label>
+            <input type="color" id="bkgdpicker" value="#ffffff">
+            <br>
+            <label for="penpicker">Pen Color Picker:</label>
+            <input type="color" id="penpicker">
+            <br>
+            <label for="sizepicker">Pen/Eraser Size Picker:<br></label>
+            <input type="range" min="1" max="25" value="2" id="sizepicker" style="width: 80%">
+            <br>
+            <form id="penoreraser">
+              <input type="radio" id="pen" name="todrawornottd" value="Pen" checked>
+              <label for="pen">Pen</label><br>
+              <input type="radio" id="eraser" name="todrawornottd" value="Eraser">
+              <label for="eraser">Eraser</label><br>
+            </form>
+            <br>
+            To: <br><input type="text" name="person" id="person">
+            <br><br>
+            Message: <br>
+            <textarea name="message" id="message"></textarea>
+            <br><br>
+            <button type="button" id="finishedNote">Submit</button>
+            <!-- type="button" is necessary so this button doesn't submit the form 
+            this button will trigger js to make and submit another form -->
+          </form>
 
-    </td>
-    <td style="background-color:#ffffff">
-      <!-- bkgd color of td needed or formatting becomes weird -->
-      <canvas id="can" width="500" height="500" style="position:absolute">
-      </canvas>
-      <canvas id="bkgd" width="500" height="500">
-      </canvas>
-    </td>
-    </tr>
-    </table>
+          </td>
+          <td class="canvTD" style="background-color:rgb(225, 198, 235)">
+            <!-- bkgd color of td needed or formatting becomes weird -->
+            <canvas id="can" width="500" height="500" style="position:absolute">
+            </canvas>
+            <canvas id="bkgd" width="500" height="500">
+            </canvas>
+          </td>
+          </tr>
+        </table>
+      </div>
+    </div>
 
     <p id="testing"></p>
     <script src="../static/js/canvas.js"></script>

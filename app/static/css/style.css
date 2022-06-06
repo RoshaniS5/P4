@@ -6,20 +6,41 @@ P04 -- Project Iris | style.css
 */
 
 div.nameOfPage {
-    color: blue;
-    font-style: italic;
+    color: rgb(255, 255, 255);
+    font-style: bold;
     text-align: center;
     margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100px;
+}
+
+div.irisNav {
+    overflow: hidden;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+.nav-link {
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 15px;
+  margin-bottom: -20px;
+  font-size: 20px;
+  background: pink;
+  color: #ffffff;
 }
 
 div.noteArea {
     padding-left: 10px;
-    background-color: lavender;
+    background-color: rgb(225, 198, 235);
 }
 
 div.bgcolor {
-    background-color: lightblue;
-
+    background-color: rgb(223, 184, 239);
+    margin-top: 50px;
 }
 
 div.mainnote {
@@ -31,6 +52,19 @@ canvas{
 }
 
 td{
-    width: 40%;
+    width: 70%;
     text-align: center;
+}
+
+td:not(.canvTD){
+    border:1px solid;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.searchBar{ 
+    display: flex;
+    justify-content: center;
 }
