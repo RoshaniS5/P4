@@ -40,6 +40,9 @@ roshaniS -- 2022-06-02 00:07
   - Added errors to pages
   - Added buttons for individual notes on home page (the buttons don't fully work yet, gives an error when clicked on)
 
+hebeH, yuqingW -- 2022-06-03 09:20
+  - Tried to get React to work on school and personal computers without luck; decided not to use React for this project
+
 roshaniS -- 2022-06-02 23:30
   - Made a very small change so that the canvas shows up
 
@@ -57,7 +60,15 @@ roshaniS -- 2022-06-05 17:31
   - Worked on turning canvas to a usable data URL upon submission (not working yet, keeps returning None)
   - Made message textbox larger by changing it into <textarea>
 
-  angelaZ -- 2022-06-06 22:54
+angelaZ -- 2022-06-05 22:54
   - Added completed Navigation Bar with working href links that is centered on top with a centered search bar
   - Changed some positioning for margins, and moved the canvas when note making into the middle
   - Edited some colors and made the unsent project link in the "about.html" clickable
+ 
+hebeH -- 2022-06-06 00:18
+  - Users can now save names, background colors, messages, canvas images, and times to the db and see them on the home page
+  - Users can pick background colors (another canvas behind the drawing canvas), pen colors, and pen size when creating canvas image as well as erase
+  - Reformatted options on canvas.html, used table
+  - Next steps: - let the user change the size/font/color of the caption (and maybe the position)
+                - let user see the caption message as they type it real time
+                - CSS
