@@ -1,12 +1,8 @@
-// /** @jsx React.DOM */
-//
 // Sleepy Starfish | Roshani Shrestha, Yuqing Wu, Angela Zhang, Hebe Huang
 // SoftDev Pd2
 // P04 -- Project Iris | Home Page
 // 2022-05-24
-// //var a = React.createClass({
-//   render: function(){
-// console.log("hello");
+
 var c = document.getElementById("can");
 var bg = document.getElementById("bkgd");
 var personInput = document.getElementById("person");
@@ -65,7 +61,7 @@ c.addEventListener("mousedown", function(e){
   y = e.offsetY;
   console.log(x)
   console.log(y)
-  // ctx.fillRect(x, y, penSize, penSize); 
+  // ctx.fillRect(x, y, penSize, penSize);
   drawing = true;
 });
 
@@ -112,10 +108,11 @@ submit.addEventListener("click", function(){
 
   var dataURL = c.toDataURL();
   // console.log(dataURL);
-  document.getElementById("testing").innerHTML = dataURL;
+  //document.getElementById("testing").innerHTML = dataURL;
   let imgLink = document.createElement("input");
   imgLink.setAttribute("name", "imgLink");
   imgLink.setAttribute("value", dataURL);
+  console.log(imgLink)
   info.appendChild(imgLink);
 
   // console.log(personInput.value);
