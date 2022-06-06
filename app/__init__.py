@@ -9,12 +9,15 @@ from database import *
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/",methods=['GET', 'POST'])
 def home():
         '''Displays the home page.'''
         # addSubmission("Roshani", "green", "heyy", "image", "sometime")
         # addSubmission("Someone", "green", "heyy", "image", "sometime")
-        totalList = getAllSubmissions()
+        totalList = getAllSubmissions("time")
+        if (request.method == "POST"):
+            if (request.form.get('name')=="sort by name"):
+                totalList=getAllSubmissions("name")
         return render_template('index.html', notes = totalList)
 
 @app.route("/time")
@@ -77,7 +80,7 @@ def send():
 @app.route("/note")
 def note():
         '''Displays the note page, which allows the user to view an individual note.'''
-        totalList = getAllSubmissions()
+        totalList = getAllSubmissions("time")
         try:
                 # which0 = request.args.get('0')
                 # which1 = request.args.get('1')

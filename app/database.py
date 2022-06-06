@@ -20,9 +20,12 @@ def addSubmission(name, color, msg, img, timeSent):
     # print("added submission pt 2")
 
 
-def getAllSubmissions():
+def getAllSubmissions(sort):
     '''Returns a list of submissions.'''
-    c.execute("SELECT * FROM submissions;")
+    if sort == "time":
+        c.execute("SELECT * FROM submissions ORDER BY number DESC;")
+    elif sort == "name":
+        c.execute("SELECT * FROM submissions ORDER BY lowercase_recipient;")
     return c.fetchall()
 
 def getNamedSubmissions(name):
