@@ -51,17 +51,22 @@ def notes():
 @app.route("/send", methods=['GET', 'POST'])
 def send():
         '''Add submission.'''
-        color = "blue" # random color for testing purposes
+        color = "pink" # random color for testing purposes
         # img = "image" # random for testing purposes
-        time = "sometime" # random time for testing purposes
         try:
-                name = request.args.get('person')
+                print("sending")
+                name = request.form.get('name')
                 if len(name) == 0:
                         return render_template('canvas.html', error="You didn't enter a recipient! Please enter a name and try again.")
-                msg = request.args.get('message')
-                img = request.args.get('image')
+                msg = request.form.get('message')
+                time = request.form.get('when')
+                img = request.form.get('imgLink')
+                # print(name)
+                # print(color)
+                # print(msg)
+                # print(img)
+                # print(time)
                 addSubmission(name, color, msg, img, time)
-                # print(name + color + msg + img + time)
         except:
                 return render_template('canvas.html', error="Some unknown error has occurred. Please try again.")
         # print(request.form.get('person'))

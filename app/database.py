@@ -12,8 +12,13 @@ def createTable():
 def addSubmission(name, color, msg, img, timeSent):
     '''Adds a submission to the database.'''
     all = getAllSubmissions()
-    c.execute("INSERT INTO submissions VALUES (?, ?, ?, ?, ?, ?, ?);", (len(all) + 1, name, name.lower(), color, msg, img, timeSent))
+    # print("adding submission")
+    # print(str(len(all) + 1))
+    c.execute("INSERT INTO submissions VALUES (?, ?, ?, ?, ?, ?, ?);", (str(len(all) + 1), name, name.lower(), color, msg, img, timeSent))
+    # print("added submission")
     db.commit()
+    # print("added submission pt 2")
+
 
 def getAllSubmissions():
     '''Returns a list of submissions.'''

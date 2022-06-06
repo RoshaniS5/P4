@@ -20,20 +20,23 @@ P04 -- Project Iris | Home Page
   <body>
     {{error}}
 
-    <form action="/send"  id="data" method='GET'>
+    <form id="data" method='GET'>
       <canvas id="can" width="500" height="500">
         <!-- onclick="blah()" -->
         ...
       </canvas>
       <br>
-      To: <input type="text" name="person">
+      To: <input type="text" name="person" id="person">
       <br><br>
       Message: <br>
-      <textarea name="message"></textarea>
+      <textarea name="message" id="message"></textarea>
       <br><br>
-      <button id="finishedNote">Submit</button>
+      <button type="button" id="finishedNote">Submit</button>
+      <!-- type="button" is necessary so this button doesn't submit the form 
+      this button will trigger js to make and submit another form -->
     </form>
 
+    <p id="testing"></p>
     <script src="../static/js/canvas.js"></script>
 
   </body>

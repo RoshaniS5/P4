@@ -8,6 +8,8 @@
 //   render: function(){
 // console.log("hello");
 var c = document.getElementById("can");
+var personInput = document.getElementById("person");
+var msgInput = document.getElementById("message");
 console.log(c);
 var ctx = c.getContext('2d');
 var x = 0;
@@ -63,16 +65,42 @@ c.addEventListener("mouseup", function(e){
 
 var submit = document.getElementById("finishedNote");
 submit.addEventListener("click", function(){
+
+  let info = document.createElement("form");
+  info.setAttribute("method", "POST");
+  info.setAttribute("action", "/send");
+  document.body.appendChild(info);
+
   var dataURL = c.toDataURL();
-  console.log(dataURL)
+  console.log(dataURL);
+  document.getElementById("testing").innerHTML = dataURL;
+  let imgLink = document.createElement("input");
+  imgLink.setAttribute("name", "imgLink");
+  imgLink.setAttribute("value", dataURL);
+  info.appendChild(imgLink);
 
-  // let results = document.createElement("form");
-  // results.setAttribute("method", "POST");
-  // results.setAttribute("action", "/send");
+  console.log(personInput.value);
+  let name = document.createElement("input");
+  name.setAttribute("name", "name");
+  name.setAttribute("value", personInput.value);
+  info.appendChild(name);
 
-  // imgSave = document.createElement("div");
-  // imgSave.innerHTML = dataURL;
-  image = document.createElement("input");
-  image.setAttribute("name", "image");
-  image.setAttribute("value", dataURL);
+  console.log(msgInput.value);
+  let message = document.createElement("input");
+  message.setAttribute("name", "message");
+  message.setAttribute("value", msgInput.value);
+  info.appendChild(message);
+
+
+  const d = new Date();
+  alert(String(d.getMonth()) + "-" + String(d.getDate()) + "-" + String(d.getFullYear()));
+  let when = document.createElement("input");
+  when.setAttribute("name", "when");
+  when.setAttribute("value", String(d.getMonth()) + "-" + String(d.getDate()) + "-" + String(d.getFullYear()));
+  info.appendChild(when);
+
+  let enter = document.createElement("input");
+  enter.setAttribute("type", "submit");
+  info.appendChild(enter);
+  enter.click();
 })
