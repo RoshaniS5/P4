@@ -78,3 +78,4 @@ yuqingW -- 2022-06-06 09:26
 
 roshaniS -- 2022-06-06 09:50
   - Added ability to remove profanity from notes using an API 
+  - Submitting notes do not work at the moment because getAllSubmissions throws an error (will fix soon)
