@@ -13,6 +13,13 @@ P04 -- Project Iris | Home Page
         <link rel="stylesheet" href="../static/css/style.css">
     </head>
 
+    <nav class="irisNav">
+        <nav class="nav nav-pills nav-justified justify-content-center">
+            <a class="nav-link" id="active" href="/">Home</a>
+            <a class="nav-link" href="/newNote">Make Note</a>
+            <a class="nav-link" href="/about">About</a>
+    </nav>
+
     <div class = "bgcolor">
 
         <body>
@@ -21,10 +28,12 @@ P04 -- Project Iris | Home Page
                 <h1> HOMEPAGE </h1>
             </div>
 
-            <form action="search" method='POST'>
-                <input type = "search" name = "query">
-                <button>Search</button>
-            </form>
+            <div class = "searchBar">
+                <form action="search" method='POST'>
+                    <input type = "search" name = "query">
+                    <button>Search</button>
+                </form>
+            </div>
 
             <div class = "noteArea">
                 <h2> this is where the notes go :0</h2>
