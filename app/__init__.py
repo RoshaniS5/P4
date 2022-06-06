@@ -83,11 +83,17 @@ def send():
                 # print(msg)
                 # print(img)
                 # print(time)
-                addSubmission(name, color, msg, img, time)
         except:
-                return render_template('canvas.html', error="Some unknown error has occurred. Please try again.")
+                name = request.form.get('name')
+                if len(name) == 0:
+                        return render_template('canvas.html', error="You didn't enter a recipient! Please enter a name and try again.")
+                msg = request.form.get('message')
+                time = request.form.get('when')
+                img = request.form.get('imgLink')
+                color = request.form.get('bkgd')
         # print(request.form.get('person'))
         # print(request.form.get('message'))
+        addSubmission(name, color, msg, img, time)
         return redirect("/")
 
 @app.route("/note")

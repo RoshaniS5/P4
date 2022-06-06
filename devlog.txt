@@ -72,3 +72,9 @@ hebeH -- 2022-06-06 00:18
   - Next steps: - let the user change the size/font/color of the caption (and maybe the position)
                 - let user see the caption message as they type it real time
                 - CSS
+
+yuqingW -- 2022-06-06 09:26
+  - Added sorting abilities on home page 
+
+roshaniS -- 2022-06-06 09:50
+  - Added ability to remove profanity from notes using an API 
