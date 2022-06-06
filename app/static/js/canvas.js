@@ -124,7 +124,7 @@ submit.addEventListener("click", function(){
   // console.log(msgInput.value);
   let message = document.createElement("input");
   message.setAttribute("name", "message");
-  message.setAttribute("value", msgInput.value);
+  message.setAttribute("value", msgInput.value.replaceAll("\n", " "));
   info.appendChild(message);
 
   // console.log(bkgdPicker.value);

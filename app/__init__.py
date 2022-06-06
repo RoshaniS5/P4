@@ -55,6 +55,7 @@ def notes():
         return render_template('canvas.html')
 
 def makeClean(input):
+        input = input.replace(" ", "%20")
         url = "https://www.purgomalum.com/service/json?text=" + input
         data = urllib.request.urlopen(url)
         read_data = data.read()
@@ -74,6 +75,7 @@ def send():
                         return render_template('canvas.html', error="You didn't enter a recipient! Please enter a name and try again.")
                 name = makeClean(name)
                 msg = makeClean(request.form.get('message'))
+                print(msg)
                 time = request.form.get('when')
                 img = request.form.get('imgLink')
                 color = request.form.get('bkgd')
