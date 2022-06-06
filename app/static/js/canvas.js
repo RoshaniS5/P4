@@ -8,54 +8,90 @@
 //   render: function(){
 // console.log("hello");
 var c = document.getElementById("can");
+var bg = document.getElementById("bkgd");
 var personInput = document.getElementById("person");
 var msgInput = document.getElementById("message");
-console.log(c);
+// console.log(c);
 var ctx = c.getContext('2d');
+var ctx1 = bg.getContext('2d');
 var x = 0;
 var y = 0;
 var drawing = false;
-// ctx.fillRect();
-// return "fhjksdhfka";
-// }
-// })
-// module.exports = a;
-// function blah(){
-//   console.log("hdskjfshkfh")
-//   // var c = document.getElementById("can");
-//   // console.log(c);
-//   // ctx=c.getContext("2d");
-//   ctx.fillStyle ="blue"
-//   ctx.fillRect(100,100,100,100);
+var penSize = 2;
+ctx.lineWidth = 2;
+erasing = false;
 
-// }
 
-// allows user to draw on canvas
+ctx.fillStyle = "black"
+ctx.strokeStyle = "black"
+var penPicker = document.getElementById("penpicker");
+penPicker.addEventListener("input", function(){
+  ctx.fillStyle = penPicker.value
+  ctx.strokeStyle = penPicker.value
+})
+var bkgdPicker = document.getElementById("bkgdpicker");
+bkgdPicker.addEventListener("input", function(){
+  ctx1.rect(0, 0, bg.width, bg.height);
+  ctx1.fillStyle = bkgdPicker.value;
+  ctx1.fill();
+})
+var sizePicker = document.getElementById("sizepicker");
+sizePicker.addEventListener("click", function(){
+  penSize = sizePicker.value;
+  ctx.lineWidth = sizePicker.value;
+})
+var penEle = document.getElementById("pen");
+var eraserEle = document.getElementById("eraser");
+penEle.addEventListener("click", function(){
+  if(penEle.checked){
+    erasing = false;
+  }
+  console.log(erasing);
+})
+eraserEle.addEventListener("click", function(){
+  if(eraserEle.checked){
+    erasing = true;
+  }
+  console.log(erasing);
+})
+
+
 c.addEventListener("mousedown", function(e){
   console.log("drawing...")
   x = e.offsetX;
   y = e.offsetY;
   console.log(x)
   console.log(y)
-  ctx.fillStyle = "blue"
-  ctx.fillRect(x, y, 1, 1);
+  // ctx.fillRect(x, y, penSize, penSize); 
   drawing = true;
 });
 
 c.addEventListener("mousemove", function(e){
   if (drawing === true) {
-    console.log("drawing...")
-    ctx.beginPath();
-    ctx.strokeStyle = "blue"
-    ctx.lineWidth = 1;
-    ctx.moveTo(x, y);
-    ctx.lineTo(e.offsetX, e.offsetY);
-    ctx.stroke();
-    ctx.closePath();
-    x = e.offsetX;
-    y = e.offsetY;
-    console.log(x)
-    console.log(y)
+    if(erasing != true){
+      console.log("drawing...")
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.stroke();
+      ctx.closePath();
+      x = e.offsetX;
+      y = e.offsetY;
+      console.log(x)
+      console.log(y)
+    }
+    else{
+      console.log("erasing...")
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.clearRect(x, y, penSize, penSize)
+      ctx.closePath();
+      x = e.offsetX;
+      y = e.offsetY;
+      console.log(x)
+      console.log(y)
+    }
   }
 });
 
@@ -72,28 +108,33 @@ submit.addEventListener("click", function(){
   document.body.appendChild(info);
 
   var dataURL = c.toDataURL();
-  console.log(dataURL);
+  // console.log(dataURL);
   document.getElementById("testing").innerHTML = dataURL;
   let imgLink = document.createElement("input");
   imgLink.setAttribute("name", "imgLink");
   imgLink.setAttribute("value", dataURL);
   info.appendChild(imgLink);
 
-  console.log(personInput.value);
+  // console.log(personInput.value);
   let name = document.createElement("input");
   name.setAttribute("name", "name");
   name.setAttribute("value", personInput.value);
   info.appendChild(name);
 
-  console.log(msgInput.value);
+  // console.log(msgInput.value);
   let message = document.createElement("input");
   message.setAttribute("name", "message");
   message.setAttribute("value", msgInput.value);
   info.appendChild(message);
 
+  // console.log(bkgdPicker.value);
+  let bkgd = document.createElement("input");
+  bkgd.setAttribute("name", "bkgd");
+  bkgd.setAttribute("value", bkgdPicker.value);
+  info.appendChild(bkgd);
 
   const d = new Date();
-  alert(String(d.getMonth()) + "-" + String(d.getDate()) + "-" + String(d.getFullYear()));
+  // alert(String(d.getMonth()) + "-" + String(d.getDate()) + "-" + String(d.getFullYear()));
   let when = document.createElement("input");
   when.setAttribute("name", "when");
   when.setAttribute("value", String(d.getMonth()) + "-" + String(d.getDate()) + "-" + String(d.getFullYear()));

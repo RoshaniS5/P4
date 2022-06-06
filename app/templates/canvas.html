@@ -19,14 +19,27 @@ P04 -- Project Iris | Home Page
 
   <body>
     {{error}}
-
+    <table>
+    <tr>
+    <td>
     <form id="data" method='GET'>
-      <canvas id="can" width="500" height="500">
-        <!-- onclick="blah()" -->
-        ...
-      </canvas>
+      <label for="bkgdpicker">Background Color Picker:</label>
+      <input type="color" id="bkgdpicker" value="#ffffff">
       <br>
-      To: <input type="text" name="person" id="person">
+      <label for="penpicker">Pen Color Picker:</label>
+      <input type="color" id="penpicker">
+      <br>
+      <label for="sizepicker">Pen/Eraser Size Picker:<br></label>
+      <input type="range" min="1" max="25" value="2" id="sizepicker" style="width: 80%">
+      <br>
+      <form id="penoreraser">
+        <input type="radio" id="pen" name="todrawornottd" value="Pen" checked>
+        <label for="pen">Pen</label><br>
+        <input type="radio" id="eraser" name="todrawornottd" value="Eraser">
+        <label for="eraser">Eraser</label><br>
+      </form>
+      <br>
+      To: <br><input type="text" name="person" id="person">
       <br><br>
       Message: <br>
       <textarea name="message" id="message"></textarea>
@@ -35,6 +48,17 @@ P04 -- Project Iris | Home Page
       <!-- type="button" is necessary so this button doesn't submit the form 
       this button will trigger js to make and submit another form -->
     </form>
+
+    </td>
+    <td style="background-color:#ffffff">
+      <!-- bkgd color of td needed or formatting becomes weird -->
+      <canvas id="can" width="500" height="500" style="position:absolute">
+      </canvas>
+      <canvas id="bkgd" width="500" height="500">
+      </canvas>
+    </td>
+    </tr>
+    </table>
 
     <p id="testing"></p>
     <script src="../static/js/canvas.js"></script>

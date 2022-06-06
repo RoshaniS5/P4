@@ -61,6 +61,7 @@ def send():
                 msg = request.form.get('message')
                 time = request.form.get('when')
                 img = request.form.get('imgLink')
+                color = request.form.get('bkgd')
                 # print(name)
                 # print(color)
                 # print(msg)

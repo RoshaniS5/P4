@@ -27,5 +27,10 @@ div.mainnote {
 }
 
 canvas{
-    border:1px solid 
+    border:1px solid ;
+}
+
+td{
+    width: 40%;
+    text-align: center;
 }
