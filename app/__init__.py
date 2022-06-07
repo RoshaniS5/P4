@@ -74,6 +74,7 @@ def notes():
     return render_template('canvas.html', imgs=imgs)
 
 def makeClean(input):
+        '''Purifies text for younger audiences'''
         input = input.replace(" ", "%20")
         url = "https://www.purgomalum.com/service/json?text=" + input
         data = urllib.request.urlopen(url)
@@ -98,6 +99,7 @@ def send():
                 time = request.form.get('when')
                 img = request.form.get('imgLink')
                 color = request.form.get('bkgd')
+                txtColor = request.form.get('textcolor')
                 # print(p_data)
                 # print(name)
                 # print(color)
@@ -114,7 +116,7 @@ def send():
                 color = request.form.get('bkgd')
         # print(request.form.get('person'))
         # print(request.form.get('message'))
-        addSubmission(name, color, msg, img, time)
+        addSubmission(name, color, msg, img, time, txtColor)
         return redirect("/")
 
 @app.route("/note")

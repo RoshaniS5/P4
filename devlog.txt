@@ -85,7 +85,7 @@ roshaniS -- 2022-06-06 09:50
 hebeH -- 2022-06-06 26:53
   - Fixed getAllSubmissions error
   - Fixed profanity checker not working with inputs containing spaces
-  - Newlines in messages now converted to spaces, inputs are limited to 45 characters to avoid formatting issues
+  - Newlines in messages now converted to spaces, inputs are limited to 30 characters to avoid formatting issues
 
 roshaniS -- 2022-06-07 01:09
   - Fixed formatting of note on the individual note page
@@ -95,5 +95,11 @@ roshaniS -- 2022-06-07 01:09
 roshaniS -- 2022-06-07 09:22
   - Fixed formatting of notes on home page
   
- yuqingW -- 2022-06-07 10:56
+yuqingW -- 2022-06-07 10:56
   - Added sticker api to python file. Now the user can search for stickers when they are on the canvas but they can't put those stickers on yet.
+
+hebeH -- 2022-06-07 14:31
+  - Users can now clear canvas, edit/save message color, see message showing on note editing page real time
+      - Bug: users can draw over the message but should be drawing under it
+  - Organized JS file, fixed month being zero indexed
+  - Pretty CSS

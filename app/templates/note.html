@@ -13,13 +13,14 @@ P04 -- Project Iris | Individual Note Page
         <link rel="stylesheet" href="../static/css/style.css">
     </head>
 
-    <nav class="irisNav">
+    <!-- <nav class="irisNav"> -->
+        <nav style="position:absolute; height:70px;">.</nav>
         <nav class="nav nav-pills nav-justified justify-content-center">
             <a class="nav-link" href="/">Home</a>
             <a class="nav-link" href="/newNote">Make Note</a>
             <a class="nav-link" href="/about">About</a>
         </nav>
-    </nav>
+    <!-- </nav> -->
 
     <div class="bgcolor">
         <body>
@@ -39,9 +40,9 @@ P04 -- Project Iris | Individual Note Page
                         <div class="col"></div>
                         <div class="col">
                             Submission #{{note[0]}} <br>
-                            To: {{note[1]}} <br>
+                            <strong> To: {{note[1]}} </strong><br>
                             <!-- {{note[3]}} <br> -->
-                            <div class="mainnote" style="background-color: {{note[3]}};">
+                            <div class="mainnote" style="background-color: {{note[3]}}; color: {{note[7]}};">
                                 {{note[4]}} <br>
                                 <img src="{{note[5]}}"> <br>
                             </div>

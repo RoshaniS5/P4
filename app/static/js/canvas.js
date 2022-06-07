@@ -5,11 +5,13 @@
 
 var c = document.getElementById("can");
 var bg = document.getElementById("bkgd");
+var txt = document.getElementById("text");
 var personInput = document.getElementById("person");
 var msgInput = document.getElementById("message");
 // console.log(c);
 var ctx = c.getContext('2d');
 var ctx1 = bg.getContext('2d');
+var ctx2 = txt.getContext('2d');
 var x = 0;
 var y = 0;
 var drawing = false;
@@ -18,6 +20,7 @@ ctx.lineWidth = 2;
 erasing = false;
 
 
+// Change Pen Color
 ctx.fillStyle = "black"
 ctx.strokeStyle = "black"
 var penPicker = document.getElementById("penpicker");
@@ -25,6 +28,9 @@ penPicker.addEventListener("input", function(){
   ctx.fillStyle = penPicker.value
   ctx.strokeStyle = penPicker.value
 })
+
+
+// Change Background Color
 var bkgdPicker = document.getElementById("bkgdpicker");
 ctx1.rect(0, 0, bg.width, bg.height);
 ctx1.fillStyle = bkgdPicker.value;
@@ -34,11 +40,17 @@ bkgdPicker.addEventListener("input", function(){
   ctx1.fillStyle = bkgdPicker.value;
   ctx1.fill();
 })
+
+
+// Change Pen Size
 var sizePicker = document.getElementById("sizepicker");
 sizePicker.addEventListener("click", function(){
   penSize = sizePicker.value;
   ctx.lineWidth = sizePicker.value;
 })
+
+
+// Toggle Drawing/Erasing
 var penEle = document.getElementById("pen");
 var eraserEle = document.getElementById("eraser");
 penEle.addEventListener("click", function(){
@@ -55,6 +67,7 @@ eraserEle.addEventListener("click", function(){
 })
 
 
+// Drawing/Erasing
 c.addEventListener("mousedown", function(e){
   console.log("drawing...")
   x = e.offsetX;
@@ -98,9 +111,37 @@ c.addEventListener("mouseup", function(e){
   drawing = false;
 });
 
+
+// Clear Screen
+var clearBtn = document.getElementById("clearCanvas");
+clearBtn.addEventListener("click", function(){
+  ctx.clearRect(0, 0, c.width, c.height);
+})
+
+
+
+// Change Text Color
+var txtColorPicker = document.getElementById("txtcolorpicker");
+txtColorPicker.addEventListener("input", function(){
+  ctx2.fillStyle = txtColorPicker.value
+  update = msgInput.value;
+  ctx2.clearRect(0, 0, txt.width, txt.height);
+  ctx2.fillText(update, txt.width/2, 25);
+})
+
+// Update Text on Canvas
+ctx2.textAlign = 'center';
+ctx2.font = '16px serif';
+msgInput.oninput = function(){
+  update = msgInput.value;
+  ctx2.clearRect(0, 0, txt.width, txt.height);
+  ctx2.fillText(update, txt.width/2, 25);
+}
+
+
+// Submit Finished Note
 var submit = document.getElementById("finishedNote");
 submit.addEventListener("click", function(){
-
   let info = document.createElement("form");
   info.setAttribute("method", "POST");
   info.setAttribute("action", "/send");
@@ -133,11 +174,16 @@ submit.addEventListener("click", function(){
   bkgd.setAttribute("value", bkgdPicker.value);
   info.appendChild(bkgd);
 
+  let txtColor = document.createElement("input");
+  txtColor.setAttribute("name", "textcolor");
+  txtColor.setAttribute("value", txtColorPicker.value);
+  info.appendChild(txtColor);
+
   const d = new Date();
-  // alert(String(d.getMonth()) + "-" + String(d.getDate()) + "-" + String(d.getFullYear()));
+  // alert(String(d.getMonth()+1) + "-" + String(d.getDate()) + "-" + String(d.getFullYear()));
   let when = document.createElement("input");
   when.setAttribute("name", "when");
-  when.setAttribute("value", String(d.getMonth()) + "-" + String(d.getDate()) + "-" + String(d.getFullYear()));
+  when.setAttribute("value", String(d.getMonth()+1) + "-" + String(d.getDate()) + "-" + String(d.getFullYear()));
   info.appendChild(when);
 
   let enter = document.createElement("input");
