@@ -89,3 +89,6 @@ roshaniS -- 2022-06-07 01:09
   - Fixed formatting of note on the individual note page
   - Fixed formatting of notes on the home page
   - Added some simple formatting to the sort buttons on the home page 
+
+roshaniS -- 2022-06-07 09:22
+  - Fixed formatting of notes on home page

@@ -55,54 +55,27 @@ P04 -- Project Iris | Home Page
                     {% for note in notes %}
                         {% if loop.index % 3 == 1 %}
                             <div class="row">
-                                <div class="col">
-                                    <form action="note" method='GET'>
-                                        <input type="hidden" name="num" value={{note[0]}}>
-                                        <button>
-                                            Submission #{{note[0]}} <br>
-                                            To: {{note[1]}} <br>
-                                            <!-- {{note[3]}} <br> -->
-                                            <div class="mainnote" style="background-color: {{note[3]}};">
-                                                {{note[4]}} <br>
-                                                <img src="{{note[5]}}"> <br>
-                                            </div>
-                                            Posted on {{note[6]}}
-                                        </button>
-                                    </form>
-                                </div>
-                        {% elif loop.index % 3 == 0 or loop.index == loop.length %}
-                                <div class="col">
-                                    <form action="note" method='GET'>
-                                        <input type="hidden" name="num" value={{note[0]}}>
-                                        <button>
-                                            Submission #{{note[0]}} <br>
-                                            To: {{note[1]}} <br>
-                                            <!-- {{note[3]}} <br> -->
-                                            <div class="mainnote" style="background-color: {{note[3]}};">
-                                                {{note[4]}} <br>
-                                                <img src="{{note[5]}}"> <br>
-                                            </div>
-                                            Posted on {{note[6]}}
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        {% else %}
-                            <div class="col">
-                                <form action="note" method='GET'>
-                                    <input type="hidden" name="num" value={{note[0]}}>
-                                    <button>
-                                        Submission #{{note[0]}} <br>
-                                        To: {{note[1]}} <br>
-                                        <!-- {{note[3]}} <br> -->
-                                        <div class="mainnote" style="background-color: {{note[3]}};">
-                                            {{note[4]}} <br>
-                                            <img src="{{note[5]}}"> <br>
-                                        </div>
-                                        Posted on {{note[6]}}
-                                    </button>
-                                </form>
-                            </div>
+                        {% endif %}
+                        <div class="col">
+                            <form action="note" method='GET'>
+                                <input type="hidden" name="num" value={{note[0]}}>
+                                <button>
+                                    Submission #{{note[0]}} <br>
+                                    To: {{note[1]}} <br>
+                                    <!-- {{note[3]}} <br> -->
+                                    <div class="mainnote" style="background-color: {{note[3]}};">
+                                        {{note[4]}} <br>
+                                        <img src="{{note[5]}}" width="300px"> <br>
+                                    </div>
+                                    Posted on {{note[6]}}
+                                </button>
+                            </form>
+                        </div>
+                        {% if loop.index % 3 == 2 and loop.index == loop.length %}
+                            <div class="col"></div>
+                        {% endif %}
+                        {% if loop.index % 3 == 0 or loop.index == loop.length %}
+                            </div><br>
                         {% endif %}
                     {% endfor %}
                 </div>
