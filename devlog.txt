@@ -80,7 +80,12 @@ roshaniS -- 2022-06-06 09:50
   - Added ability to remove profanity from notes using an API 
   - Submitting notes do not work at the moment because getAllSubmissions throws an error (will fix soon)
 
-hebeH == 2022-06-06 26:53
+hebeH -- 2022-06-06 26:53
   - Fixed getAllSubmissions error
   - Fixed profanity checker not working with inputs containing spaces
   - Newlines in messages now converted to spaces, inputs are limited to 45 characters to avoid formatting issues
+
+roshaniS -- 2022-06-07 01:09
+  - Fixed formatting of note on the individual note page
+  - Fixed formatting of notes on the home page
+  - Added some simple formatting to the sort buttons on the home page 

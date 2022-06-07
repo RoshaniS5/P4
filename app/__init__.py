@@ -12,11 +12,9 @@ from database import *
 
 app = Flask(__name__)
 
-@app.route("/",methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def home():
         '''Displays the home page.'''
-        # addSubmission("Roshani", "green", "heyy", "image", "sometime")
-        # addSubmission("Someone", "green", "heyy", "image", "sometime")
         totalList = getAllSubmissions("time")
         if (request.method == "POST"):
             if (request.form.get('name')=="sort by name"):
