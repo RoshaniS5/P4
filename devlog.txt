@@ -95,5 +95,8 @@ roshaniS -- 2022-06-07 01:09
 roshaniS -- 2022-06-07 09:22
   - Fixed formatting of notes on home page
   
- yuqingW -- 2022-06-07 10:56
+yuqingW -- 2022-06-07 10:56
   - Added sticker api to python file. Now the user can search for stickers when they are on the canvas but they can't put those stickers on yet.
+
+roshaniS -- 2022-06-07 18:31
+  - Added API pdf to repo and API information to readme
