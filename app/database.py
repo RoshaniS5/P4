@@ -29,8 +29,8 @@ def getAllSubmissions(sort):
     return c.fetchall()
 
 def getNamedSubmissions(name):
-    '''Returns a list of submissions that match a given name.'''
-    c.execute("SELECT * FROM submissions WHERE lowercase_recipient = (?);", (name.lower(),))
+    '''Returns a list of submissions that match a given name, most recent comes up to top.'''
+    c.execute("SELECT * FROM submissions WHERE lowercase_recipient = (?) ORDER BY number DESC;", (name.lower(),))
     return c.fetchall()
 
 def getSubmission(submissionnumber):
