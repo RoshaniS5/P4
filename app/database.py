@@ -11,7 +11,7 @@ def createTable():
 
 def addSubmission(name, color, msg, img, timeSent):
     '''Adds a submission to the database.'''
-    all = getAllSubmissions()
+    all = getAllSubmissions("time")
     # print("adding submission")
     # print(str(len(all) + 1))
     c.execute("INSERT INTO submissions VALUES (?, ?, ?, ?, ?, ?, ?);", (str(len(all) + 1), name, name.lower(), color, msg, img, timeSent))

@@ -29,6 +29,7 @@ P04 -- Project Iris | Home Page
           <a class="nav-link" href="/">Home</a>
           <a class="nav-link" id="active" href="/newNote">Make Note</a>
           <a class="nav-link" href="/about">About</a>
+      </nav>
     </nav>
     <div class="bgcolor">
       <div class="row d-flex justify-content-center">
@@ -53,11 +54,11 @@ P04 -- Project Iris | Home Page
               <label for="eraser">Eraser</label><br>
             </form>
             <br>
-            To: <br><input type="text" name="person" id="person">
+            To: <br><input type="text" name="person" id="person" maxlength="45">
             <br><br>
             Message: <br>
-            <textarea name="message" id="message"></textarea>
-            <br><br>
+            <textarea name="message" id="message" maxlength="45"></textarea>
+            <br>Maximum 45 characters<br>Line breaks will be converted to spaces<br><br>
             <button type="button" id="finishedNote">Submit</button>
             <!-- type="button" is necessary so this button doesn't submit the form 
             this button will trigger js to make and submit another form -->

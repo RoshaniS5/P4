@@ -33,6 +33,23 @@ div.irisNav {
   color: #ffffff;
 }
 
+input[name="time"], input[name="name"] {
+    border-style: outset;
+    border-width: 3px;
+    border-color: rgb(171, 81, 255);
+    color: rgb(171, 81, 255);
+    background-color: white;
+}
+
+input[name="time"]:hover, input[name="name"]:hover {
+    border-style: inset;
+    border-width: 3px;
+    border-color: rgb(74, 62, 143);
+    color: rgb(74, 62, 143);
+    background-color: lavender;
+    cursor: pointer;
+}
+
 div.noteArea {
     padding-left: 10px;
     background-color: rgb(225, 198, 235);

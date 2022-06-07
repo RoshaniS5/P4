@@ -5,15 +5,16 @@
 
 from flask import Flask, render_template, request, session, redirect, url_for
 import sqlite3
+import json
+import ssl
+import urllib.request
 from database import *
 
 app = Flask(__name__)
 
-@app.route("/",methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def home():
         '''Displays the home page.'''
-        # addSubmission("Roshani", "green", "heyy", "image", "sometime")
-        # addSubmission("Someone", "green", "heyy", "image", "sometime")
         totalList = getAllSubmissions("time")
         if (request.method == "POST"):
             if (request.form.get('name')=="sort by name"):
@@ -51,13 +52,38 @@ def notes():
         '''Displays the notes page, which allows the user to submit a note.'''
         return render_template('canvas.html')
 
+def makeClean(input):
+        input = input.replace(" ", "%20")
+        url = "https://www.purgomalum.com/service/json?text=" + input
+        data = urllib.request.urlopen(url)
+        read_data = data.read()
+        d_data = read_data.decode('utf-8')
+        p_data = json.loads(d_data)
+        return p_data['result']
+
 @app.route("/send", methods=['GET', 'POST'])
 def send():
         '''Add submission.'''
-        color = "pink" # random color for testing purposes
+        # color = "pink" # random color for testing purposes
         # img = "image" # random for testing purposes
         try:
                 print("sending")
+                name = request.form.get('name')
+                if len(name) == 0:
+                        return render_template('canvas.html', error="You didn't enter a recipient! Please enter a name and try again.")
+                name = makeClean(name)
+                msg = makeClean(request.form.get('message'))
+                print(msg)
+                time = request.form.get('when')
+                img = request.form.get('imgLink')
+                color = request.form.get('bkgd')
+                # print(p_data)
+                # print(name)
+                # print(color)
+                # print(msg)
+                # print(img)
+                # print(time)
+        except:
                 name = request.form.get('name')
                 if len(name) == 0:
                         return render_template('canvas.html', error="You didn't enter a recipient! Please enter a name and try again.")
@@ -65,16 +91,9 @@ def send():
                 time = request.form.get('when')
                 img = request.form.get('imgLink')
                 color = request.form.get('bkgd')
-                # print(name)
-                # print(color)
-                # print(msg)
-                # print(img)
-                # print(time)
-                addSubmission(name, color, msg, img, time)
-        except:
-                return render_template('canvas.html', error="Some unknown error has occurred. Please try again.")
         # print(request.form.get('person'))
         # print(request.form.get('message'))
+        addSubmission(name, color, msg, img, time)
         return redirect("/")
 
 @app.route("/note")
