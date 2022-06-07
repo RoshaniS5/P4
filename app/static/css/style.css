@@ -51,7 +51,6 @@ nav{
   font-size: 20px;
   background: pink;
   color: #ffffff;
-  box-shadow: 0px 2px 10px #eff5e2;
 }
 
 input[name="time"], input[name="name"] {
