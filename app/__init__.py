@@ -9,6 +9,9 @@ import json
 import ssl
 import urllib.request
 from database import *
+import json
+from urllib import parse
+from urllib import request as url_req
 
 app = Flask(__name__)
 
@@ -47,10 +50,28 @@ def about():
         '''Displays the about page.'''
         return render_template('about.html')
 
-@app.route("/newNote")
+@app.route("/newNote", methods=['GET', 'POST'])
 def notes():
-        '''Displays the notes page, which allows the user to submit a note.'''
-        return render_template('canvas.html')
+    '''Displays the notes page, which allows the user to submit a note.'''
+    imgs=[]
+    if(request.method=="POST"):
+        sticker_name = request.form.get('sticker_name')
+        url = "http://api.giphy.com/v1/stickers/search"
+
+        params = parse.urlencode({
+        "q": sticker_name,
+        "api_key": "BTf0PeYNTOgwwackk1O7QvBu1vzl0XR2",
+        "limit": "16"
+        })
+
+        with url_req.urlopen("".join((url, "?", params))) as response:
+            data = json.loads(response.read())
+            try:
+                for i in data['data']:
+                    imgs.append(i['images']['original']['url'])
+            except:
+                pass
+    return render_template('canvas.html', imgs=imgs)
 
 def makeClean(input):
         input = input.replace(" ", "%20")
