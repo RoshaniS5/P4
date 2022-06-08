@@ -202,6 +202,14 @@ submit.addEventListener("click", function(){
   enter.click();
 })
 
+function getMousePos(canvas, e) {
+    var rect = canvas.getBoundingClientRect();
+    return {
+        x: (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
+        y: (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+    };
+}
+
 var stickers=document.getElementsByClassName("sticker");
 var sticker_drag=new Image();
 sticker_drag.crossOrigin = "anonymous";
@@ -209,8 +217,8 @@ console.log(stickers);
 for(i=0;i<stickers.length;i++){
   stickers[i].addEventListener("dragstart", function(){sticker_drag.src=this.src});
   stickers[i].addEventListener("dragend", (e)=>{
-    ctx.drawImage(sticker_drag,0,0,100,100); // can't really figure out the offset because the browser size also mess things up
-
+    var m = getMousePos(c, e);
+    ctx.drawImage(sticker_drag,m.x-50,m.y-50,100,100); // can't really figure out the offset because the browser size also mess things up
   } );
 }
 
