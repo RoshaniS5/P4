@@ -13,13 +13,13 @@ P04 -- Project Iris | Home Page
         <link rel="stylesheet" href="../static/css/style.css">
     </head>
 
-    <nav class="irisNav">
-        <nav class="nav nav-pills nav-justified justify-content-center">
-            <a class="nav-link" id="active" href="/">Home</a>
-            <a class="nav-link" href="/newNote">Make Note</a>
-            <a class="nav-link" href="/about">About</a>
+    <!-- <nav class="irisNav"> -->
+        <nav class="nav nav-pills nav-justified justify-content-center" style="box-shadow: 0px 2px 10px #eff5e2; height: 70px;">
+            <a class="nav-link" id="active" href="/" style="height: 45px;">Home</a>
+            <a class="nav-link" href="/newNote" style="height: 45px;">Make Note</a>
+            <a class="nav-link" href="/about" style="height: 45px;">About</a>
         </nav>
-    </nav>
+    <!-- </nav> -->
 
     <div class = "bgcolor">
 
@@ -36,21 +36,15 @@ P04 -- Project Iris | Home Page
                 </form>
             </div>
             <br>
-            <div class="input-group">
-                <div class="input-group-append">
-                    <form action="/" method="POST">
-                    <input type = "submit" name = "time" value="sort by time">
-                    </form>
-                </div>
-                <div class="input-group-append">
-                    <form action="/" method="POST">
-                    <input type = "submit" name = "name" value = "sort by name">
-                    </form>
-                </div>
-            </div>
-            <br>
+            <form action="/" method="POST" style="display: inline-block;">
+            <input type = "submit" name = "time" value="sort by time">
+            </form>
+            <form action="/" method="POST" style="display: inline-block;">
+            <input type = "submit" name = "name" value = "sort by name">
+            </form>
+            <br><br><br>
             <div class = "noteArea">
-                <h2> this is where the notes go :0</h2>
+                <!-- <h2> this is where the notes go :0</h2> -->
                 <div class="container">
                     {% for note in notes %}
                         {% if loop.index % 3 == 1 %}
@@ -59,11 +53,11 @@ P04 -- Project Iris | Home Page
                         <div class="col">
                             <form action="note" method='GET'>
                                 <input type="hidden" name="num" value={{note[0]}}>
-                                <button>
+                                <button class="note">
                                     Submission #{{note[0]}} <br>
-                                    To: {{note[1]}} <br>
+                                    <strong> To: {{note[1]}} </strong><br>
                                     <!-- {{note[3]}} <br> -->
-                                    <div class="mainnote" style="background-color: {{note[3]}};">
+                                    <div class="mainnote" style="font-size: x-small; background-color: {{note[3]}}; color: {{note[7]}};">
                                         {{note[4]}} <br>
                                         <img src="{{note[5]}}" width="300px"> <br>
                                     </div>
@@ -80,9 +74,6 @@ P04 -- Project Iris | Home Page
                     {% endfor %}
                 </div>
             </div>
-            <form id = "Align" action="/newNote" method='GET'>
-                <button type="submit" formaction="/newNote">New Note</button>
-            </form>
         </body>
     </div>
 

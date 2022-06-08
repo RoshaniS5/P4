@@ -7,14 +7,14 @@ c = db.cursor()
 
 def createTable():
     '''Creates the table for submissions.'''
-    c.execute("CREATE TABLE IF NOT EXISTS submissions (number INTEGER, recipient TEXT, lowercase_recipient TEXT, colorbg TEXT, message TEXT, picture TEXT, time TEXT);")
+    c.execute("CREATE TABLE IF NOT EXISTS submissions (number INTEGER, recipient TEXT, lowercase_recipient TEXT, colorbg TEXT, message TEXT, picture TEXT, time TEXT, textcolor TEXT);")
 
-def addSubmission(name, color, msg, img, timeSent):
+def addSubmission(name, color, msg, img, timeSent, textcolor):
     '''Adds a submission to the database.'''
     all = getAllSubmissions("time")
     # print("adding submission")
     # print(str(len(all) + 1))
-    c.execute("INSERT INTO submissions VALUES (?, ?, ?, ?, ?, ?, ?);", (str(len(all) + 1), name, name.lower(), color, msg, img, timeSent))
+    c.execute("INSERT INTO submissions VALUES (?, ?, ?, ?, ?, ?, ?, ?);", (str(len(all) + 1), name, name.lower(), color, msg, img, timeSent, textcolor))
     # print("added submission")
     db.commit()
     # print("added submission pt 2")

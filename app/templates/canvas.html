@@ -18,27 +18,32 @@ P04 -- Project Iris | Home Page
   </head>
 
   <body>
-    <nav class="irisNav">
-      <nav class="nav nav-pills nav-justified justify-content-center">
-          <a class="nav-link" href="/">Home</a>
-          <a class="nav-link" id="active" href="/newNote">Make Note</a>
-          <a class="nav-link" href="/about">About</a>
-      </nav>
+    <!-- <nav class="irisNav"> -->
+      <nav class="nav nav-pills nav-justified justify-content-center" style="box-shadow: 0px 2px 10px #eff5e2; height: 70px;">
+        <a class="nav-link" id="active" href="/" style="height: 45px;">Home</a>
+        <a class="nav-link" href="/newNote" style="height: 45px;">Make Note</a>
+        <a class="nav-link" href="/about" style="height: 45px;">About</a>
     </nav>
+    <!-- </nav> -->
     <div class="bgcolor">
       <div class="row d-flex justify-content-center">
-        {{error}}
         <table>
+          <tr><th><br>{{error}}<br></th></tr>
           <tr>
           <td class="canvTD">
           <form id="data" method='GET'>
-            <label for="bkgdpicker">Background Color Picker:</label>
-            <input type="color" id="bkgdpicker" value="#ffffff">
+            <div class="colorOptions">
+              <label for="bkgdpicker">Background Color Picker:</label>
+              <input type="color" id="bkgdpicker" value="#ffffff">
+              <br>
+              <label for="txtcolorpicker">Message Color Picker:</label>
+              <input type="color" id="txtcolorpicker">
+              <br>  
+              <label for="penpicker">Pen Color Picker:</label>
+              <input type="color" id="penpicker">
+            </div>
             <br>
-            <label for="penpicker">Pen Color Picker:</label>
-            <input type="color" id="penpicker">
-            <br>
-            <label for="sizepicker">Pen/Eraser Size Picker:<br></label>
+            <label for="sizepicker">Pen/Eraser Size:<br></label>
             <input type="range" min="1" max="25" value="2" id="sizepicker" style="width: 80%">
             <br>
             <form id="penoreraser">
@@ -47,20 +52,31 @@ P04 -- Project Iris | Home Page
               <input type="radio" id="eraser" name="todrawornottd" value="Eraser">
               <label for="eraser">Eraser</label><br>
             </form>
+            <button type="button" id="clearCanvas">Clear Canvas</button>
             <br>
-            To: <br><input type="text" name="person" id="person" maxlength="45">
-            <br><br>
-            Message: <br>
-            <textarea name="message" id="message" maxlength="45"></textarea>
-            <br>Maximum 45 characters<br>Line breaks will be converted to spaces<br><br>
+
+            <hr style="height:2px; color:rgb(255, 232, 251); background-color:rgb(255, 232, 251); width: 90%">
+            
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3" style="background-color: rgb(101, 120, 59); color: white;">To:</span>
+              </div>
+              <input type="text" name="person" id="person" maxlength="25">
+            </div>
+            
+            <div style="background-color: rgb(101, 120, 59); color: white;">Message:</div>
+            <textarea name="message" id="message" maxlength="50" style="width: 100%;"></textarea>
+            <div style="font-size: x-small; font-style: italic;">Maximum 45 characters<br>Line breaks will be converted to spaces</div><br>
             <button type="button" id="finishedNote">Submit</button>
             <!-- type="button" is necessary so this button doesn't submit the form
             this button will trigger js to make and submit another form -->
+            <br><br>
           </form>
 
           </td>
-          <td class="canvTD" style="background-color:rgb(225, 198, 235)">
-            <!-- bkgd color of td needed or formatting becomes weird -->
+          <td class="canvTD">
+            <canvas id="text" width="500" height="500" style="position:absolute" style="pointer-events: none;">
+            </canvas>
             <canvas id="can" width="500" height="500" style="position:absolute">
             </canvas>
             <canvas id="bkgd" width="500" height="500">
@@ -69,7 +85,7 @@ P04 -- Project Iris | Home Page
           </tr>
         </table>
       </div>
-    </div>
+    
 
     Search for stickers to put on the canvas!
     <form action="/newNote" method="POST">
@@ -81,6 +97,8 @@ P04 -- Project Iris | Home Page
       {% endfor%}
     <p id="testing"></p>
     <script src="../static/js/canvas.js"></script>
+
+  </div>
 
   </body>
 </html>
