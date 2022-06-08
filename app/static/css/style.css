@@ -53,6 +53,10 @@ nav{
   color: #ffffff;
 }
 
+.nav-link:hover {
+  color: rgb(226, 113, 175)
+}
+
 input[name="time"], input[name="name"] {
     border-style: outset;
     border-width: 3px;
