@@ -17,7 +17,6 @@ var penSize = 2;
 ctx.lineWidth = 2;
 erasing = false;
 
-
 ctx.fillStyle = "black"
 ctx.strokeStyle = "black"
 var penPicker = document.getElementById("penpicker");
@@ -145,3 +144,17 @@ submit.addEventListener("click", function(){
   info.appendChild(enter);
   enter.click();
 })
+
+var stickers=document.getElementsByClassName("sticker");
+var sticker_drag=new Image();
+sticker_drag.crossOrigin = "anonymous";
+console.log(stickers);
+for(i=0;i<stickers.length;i++){
+  stickers[i].addEventListener("dragstart", function(){sticker_drag.src=this.src});
+  stickers[i].addEventListener("dragend", (e)=>{
+    ctx.drawImage(sticker_drag,0,0,100,100); // can't really figure out the offset because the browser size also mess things up
+
+  } );
+}
+
+console.log(sticker_drag)
