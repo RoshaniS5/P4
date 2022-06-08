@@ -107,3 +107,6 @@ hebeH -- 2022-06-07 14:31
 roshaniS -- 2022-06-07 18:31
   - Added API pdf to repo and API information to readme
   - Added wsgi file to repo
+
+yuqingW -- 2022-06-08 10:33
+- Now can put sticker on canvas with right position (considering users usually drag in the middle of the sticker we manually added the offset). 
