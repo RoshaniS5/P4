@@ -29,7 +29,11 @@ Hebe:
 ## API Cards:
 PurgoMalum (https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_PurgoMalum.md)  
 PurgoMalum checks if there is profanity in text. It also replaces profanity in text with asterisks.  
-We are using this API to remove profanity from notes that people submit. They will appear in the form of asterisks.
+We are using this API to remove profanity from notes that people submit. They will appear in the form of asterisks.  
+  
+GIPHY (https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_GIPHY.md)  
+GIPHY provides stickers and GIFs from their library.  
+We are using this API to allow users to add stickers to their notes. 
 
 ## Launch Codes
 - Install and activate virtual environment <br>

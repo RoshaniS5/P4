@@ -54,24 +54,31 @@ def about():
 def notes():
     '''Displays the notes page, which allows the user to submit a note.'''
     imgs=[]
-    if(request.method=="POST"):
-        sticker_name = request.form.get('sticker_name')
-        url = "http://api.giphy.com/v1/stickers/search"
+    key = True
+    try:
+        if(request.method=="POST"):
+                sticker_name = request.form.get('sticker_name')
+                url = "http://api.giphy.com/v1/stickers/search"
 
-        params = parse.urlencode({
-        "q": sticker_name,
-        "api_key": "BTf0PeYNTOgwwackk1O7QvBu1vzl0XR2",
-        "limit": "16"
-        })
+                f = open("keys/key_giphy.txt", "r")
+                api_key = f.read().strip()
 
-        with url_req.urlopen("".join((url, "?", params))) as response:
-            data = json.loads(response.read())
-            try:
-                for i in data['data']:
-                    imgs.append(i['images']['original']['url'])
-            except:
-                pass
-    return render_template('canvas.html', imgs=imgs)
+                params = parse.urlencode({
+                "q": sticker_name,
+                "api_key": api_key,
+                "limit": "16"
+                })
+
+                with url_req.urlopen("".join((url, "?", params))) as response:
+                        data = json.loads(response.read())
+                        try:
+                                for i in data['data']:
+                                        imgs.append(i['images']['original']['url'])
+                        except:
+                                pass
+    except:
+        key = False
+    return render_template('canvas.html', imgs=imgs, isThereKey=key)
 
 def makeClean(input):
         '''Purifies text for younger audiences'''
@@ -114,6 +121,7 @@ def send():
                 time = request.form.get('when')
                 img = request.form.get('imgLink')
                 color = request.form.get('bkgd')
+                txtColor = request.form.get('textcolor')
         # print(request.form.get('person'))
         # print(request.form.get('message'))
         addSubmission(name, color, msg, img, time, txtColor)

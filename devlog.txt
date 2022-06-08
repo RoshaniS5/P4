@@ -105,8 +105,13 @@ hebeH -- 2022-06-07 14:31
   - Pretty CSS
 
 roshaniS -- 2022-06-07 18:31
-  - Added API pdf to repo and API information to readme
+  - Added PurgoMalum API pdf to repo and API information to readme
   - Added wsgi file to repo
 
 yuqingW -- 2022-06-08 10:33
-- Now can put sticker on canvas with right position (considering users usually drag in the middle of the sticker we manually added the offset). 
+  - Now the user can put sticker on canvas with right position (considering users usually drag in the middle of the sticker we manually added the offset). 
+
+roshaniS -- 2022-06-08 19:27
+  - Added keys directory and file for the GIPHY API key, changed code in __init__.py to reflect this
+  - Added alert if there is no API key 
+  - Added GIPHY API pdf to repo and API information to readme 
