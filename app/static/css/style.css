@@ -95,13 +95,13 @@ td{
     padding-right: 20px;
 }
 
-td:not(.canvTD){
+/* td:not(.canvTD){
     border:1px solid;
     margin: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 div.searchBar{ 
     display: flex;

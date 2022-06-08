@@ -142,6 +142,11 @@ msgInput.oninput = function(){
 // Submit Finished Note
 var submit = document.getElementById("finishedNote");
 submit.addEventListener("click", function(){
+  if(!personInput.value){
+    alert("Please specify a recipient!");
+    return;
+  }
+
   let info = document.createElement("form");
   info.setAttribute("method", "POST");
   info.setAttribute("action", "/send");
@@ -151,6 +156,7 @@ submit.addEventListener("click", function(){
   // console.log(dataURL);
   //document.getElementById("testing").innerHTML = dataURL;
   let imgLink = document.createElement("input");
+  imgLink.setAttribute("type", "hidden");
   imgLink.setAttribute("name", "imgLink");
   imgLink.setAttribute("value", dataURL);
   console.log(imgLink)
@@ -158,23 +164,27 @@ submit.addEventListener("click", function(){
 
   // console.log(personInput.value);
   let name = document.createElement("input");
+  name.setAttribute("type", "hidden");
   name.setAttribute("name", "name");
   name.setAttribute("value", personInput.value);
   info.appendChild(name);
 
   // console.log(msgInput.value);
   let message = document.createElement("input");
+  message.setAttribute("type", "hidden");
   message.setAttribute("name", "message");
   message.setAttribute("value", msgInput.value.replaceAll("\n", " "));
   info.appendChild(message);
 
   // console.log(bkgdPicker.value);
   let bkgd = document.createElement("input");
+  bkgd.setAttribute("type", "hidden");
   bkgd.setAttribute("name", "bkgd");
   bkgd.setAttribute("value", bkgdPicker.value);
   info.appendChild(bkgd);
 
   let txtColor = document.createElement("input");
+  txtColor.setAttribute("type", "hidden");
   txtColor.setAttribute("name", "textcolor");
   txtColor.setAttribute("value", txtColorPicker.value);
   info.appendChild(txtColor);
@@ -182,11 +192,13 @@ submit.addEventListener("click", function(){
   const d = new Date();
   // alert(String(d.getMonth()+1) + "-" + String(d.getDate()) + "-" + String(d.getFullYear()));
   let when = document.createElement("input");
+  when.setAttribute("type", "hidden");
   when.setAttribute("name", "when");
   when.setAttribute("value", String(d.getMonth()+1) + "-" + String(d.getDate()) + "-" + String(d.getFullYear()));
   info.appendChild(when);
 
   let enter = document.createElement("input");
+  enter.setAttribute("type", "hidden");
   enter.setAttribute("type", "submit");
   info.appendChild(enter);
   enter.click();
