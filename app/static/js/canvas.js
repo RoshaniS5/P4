@@ -19,7 +19,17 @@ var penSize = 2;
 ctx.lineWidth = 2;
 erasing = false;
 var saved_Canvas = localStorage.getItem("can");
+var saved_person = localStorage.getItem("recipient");
+var saved_message=localStorage.getItem("message");
+console.log(saved_person);
 
+if(saved_person!=null){
+  document.getElementById('person').value=saved_person;
+}
+
+if(saved_message!=null){
+  document.getElementById('message').value=saved_message;
+}
 if (saved_Canvas!=null){
   var old_can = new Image();
   old_can.onload=function(){
@@ -209,6 +219,10 @@ submit.addEventListener("click", function(){
   enter.setAttribute("type", "submit");
   info.appendChild(enter);
   enter.click();
+
+  localStorage.removeItem("can");
+  localStorage.removeItem("recipient");
+  localStorage.removeItem("message");
 })
 
 function getMousePos(canvas, e) {
@@ -232,8 +246,10 @@ for(i=0;i<stickers.length;i++){
 
 var save = () =>{
   localStorage.setItem("can",c.toDataURL());
-  //localStorage.setItem("recipient", document.getElementById('name'))
+  localStorage.setItem("recipient", document.getElementById('person').value);
+  localStorage.setItem("message", document.getElementById("message").value);
 }
 var saveB = document.getElementById('saveNote');
 saveB.addEventListener('click', save);
+
 }
