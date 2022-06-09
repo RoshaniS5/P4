@@ -39,11 +39,11 @@ if (saved_Canvas!=null){
 }
 
 ctx.fillStyle = "black"
-ctx.strokeStyle = "black"
+var pen_color = "black"
 var penPicker = document.getElementById("penpicker");
 penPicker.addEventListener("input", function(){
   ctx.fillStyle = penPicker.value
-  ctx.strokeStyle = penPicker.value
+  pen_color = penPicker.value
 })
 
 
@@ -102,6 +102,7 @@ c.addEventListener("mousemove", function(e){
       ctx.beginPath();
       ctx.moveTo(x, y);
       ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.strokeStyle=pen_color;
       ctx.stroke();
       ctx.closePath();
       x = e.offsetX;
@@ -114,7 +115,9 @@ c.addEventListener("mousemove", function(e){
       ctx.beginPath();
       ctx.moveTo(x, y);
       ctx.lineTo(e.offsetX, e.offsetY);
-      ctx.clearRect(x, y, penSize, penSize)
+      ctx.strokeStyle = "white";
+      //ctx.clearRect(x, y, penSize, penSize)
+      ctx.stroke();
       ctx.closePath();
       x = e.offsetX;
       y = e.offsetY;
