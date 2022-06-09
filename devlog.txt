@@ -116,3 +116,7 @@ roshaniS -- 2022-06-08 19:27
   - Added alert if there is no API key 
   - Added GIPHY API pdf to repo and API information to readme 
   - Added conf file to repo
+  
+yuqingW -- 2022-06-09 12:47
+  - Fixed bugs about clearing text and canvas after searching for stickers. Added a save option so users don't lose their work. Done with js localStorage and remove saved text and canvas after submitting.
+  - Changed eraser to white strokes so now users can erase stickers.
