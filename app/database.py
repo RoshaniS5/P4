@@ -1,3 +1,8 @@
+# Sleepy Starfish - Roshani Shrestha (Pete), Yuqing Wu (Zero), Angela Zhang (Inky), Hebe Huang (Umbreon)
+# SoftDev Pd2
+# P04 -- Project Iris
+# 2022-05-27
+
 import sqlite3
 from flask import session
 
