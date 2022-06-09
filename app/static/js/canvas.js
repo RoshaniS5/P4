@@ -2,7 +2,7 @@
 // SoftDev Pd2
 // P04 -- Project Iris | Home Page
 // 2022-05-24
-
+window.onload=()=>{
 var c = document.getElementById("can");
 var bg = document.getElementById("bkgd");
 var txt = document.getElementById("text");
@@ -18,6 +18,15 @@ var drawing = false;
 var penSize = 2;
 ctx.lineWidth = 2;
 erasing = false;
+var saved_Canvas = localStorage.getItem("can");
+
+if (saved_Canvas!=null){
+  var old_can = new Image();
+  old_can.onload=function(){
+  ctx.drawImage(old_can,0,0);
+}
+  old_can.src=saved_Canvas;
+}
 
 ctx.fillStyle = "black"
 ctx.strokeStyle = "black"
@@ -213,7 +222,6 @@ function getMousePos(canvas, e) {
 var stickers=document.getElementsByClassName("sticker");
 var sticker_drag=new Image();
 sticker_drag.crossOrigin = "anonymous";
-console.log(stickers);
 for(i=0;i<stickers.length;i++){
   stickers[i].addEventListener("dragstart", function(){sticker_drag.src=this.src});
   stickers[i].addEventListener("dragend", (e)=>{
@@ -222,4 +230,10 @@ for(i=0;i<stickers.length;i++){
   } );
 }
 
-console.log(sticker_drag)
+var save = () =>{
+  localStorage.setItem("can",c.toDataURL());
+  //localStorage.setItem("recipient", document.getElementById('name'))
+}
+var saveB = document.getElementById('saveNote');
+saveB.addEventListener('click', save);
+}
