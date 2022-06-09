@@ -122,7 +122,7 @@ def send():
                 img = request.form.get('imgLink')
                 color = request.form.get('bkgd')
                 txtColor = request.form.get('textcolor')
-        # print(request.form.get('person'))
+        # print(request.form.get('name'))
         # print(request.form.get('message'))
         addSubmission(name, color, msg, img, time, txtColor)
         return redirect("/")
@@ -132,11 +132,6 @@ def note():
         '''Displays the note page, which allows the user to view an individual note.'''
         totalList = getAllSubmissions("time")
         try:
-                # which0 = request.args.get('0')
-                # which1 = request.args.get('1')
-                # which2 = request.args.get('2')
-                # which3 = request.args.get('3')
-                # which4 = request.args.get('4')
                 whichnum = request.args.get('num')
                 which = getSubmission(whichnum)
                 # print(which[0][5])
