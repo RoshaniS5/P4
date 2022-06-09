@@ -115,3 +115,4 @@ roshaniS -- 2022-06-08 19:27
   - Added keys directory and file for the GIPHY API key, changed code in __init__.py to reflect this
   - Added alert if there is no API key 
   - Added GIPHY API pdf to repo and API information to readme 
+  - Added conf file to repo
