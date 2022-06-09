@@ -38,7 +38,7 @@ P04 -- Project Iris | Home Page
               <br>
               <label for="txtcolorpicker">Message Color Picker:</label>
               <input type="color" id="txtcolorpicker">
-              <br>  
+              <br>
               <label for="penpicker">Pen Color Picker:</label>
               <input type="color" id="penpicker">
             </div>
@@ -56,17 +56,18 @@ P04 -- Project Iris | Home Page
             <br>
 
             <hr style="height:2px; color:rgb(255, 232, 251); background-color:rgb(255, 232, 251); width: 90%">
-            
+
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon3" style="background-color: rgb(101, 120, 59); color: white;">To:</span>
               </div>
               <input type="text" name="person" id="person" maxlength="25">
             </div>
-            
+
             <div style="background-color: rgb(101, 120, 59); color: white;">Message:</div>
             <textarea name="message" id="message" maxlength="50" style="width: 100%;"></textarea>
             <div style="font-size: x-small; font-style: italic;">Maximum 45 characters<br>Line breaks will be converted to spaces</div><br>
+            <button type="button" id="saveNote">Save</button>
             <button type="button" id="finishedNote">Submit</button>
             <!-- type="button" is necessary so this button doesn't submit the form
             this button will trigger js to make and submit another form -->
@@ -85,7 +86,7 @@ P04 -- Project Iris | Home Page
           </tr>
         </table>
       </div>
-    
+
 
     Search for stickers to put on the canvas!
     <form action="/newNote" method="POST">
