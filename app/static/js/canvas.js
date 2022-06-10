@@ -1,6 +1,6 @@
 // Sleepy Starfish | Roshani Shrestha, Yuqing Wu, Angela Zhang, Hebe Huang
 // SoftDev Pd2
-// P04 -- Project Iris | Home Page
+// P04 -- Project Iris
 // 2022-05-24
 
 var c = document.getElementById("can");
@@ -241,13 +241,9 @@ for(i=0;i<stickers.length;i++){
 }
 
 var save = () =>{
-  //localStorage.setItem("can",c.toDataURL());
-  //localStorage.setItem("recipient", document.getElementById('person').value);
-  //localStorage.setItem("message", document.getElementById("message").value);
   document.getElementById("recipient").value = document.getElementById('person').value;
   document.getElementById("canvas").value=c.toDataURL();
-  console.log(document.getElementById("recipient").value);
-
+  document.getElementById("savedmsg").value = document.getElementById("message").value
 }
 var saveB = document.getElementById('saveNote');
 saveB.addEventListener('click', save);

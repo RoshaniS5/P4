@@ -1,6 +1,6 @@
 <!-- Sleepy Starfish | Roshani Shrestha, Yuqing Wu, Angela Zhang, Hebe Huang
 SoftDev Pd2
-P04 -- Project Iris | Home Page
+P04 -- Project Iris
 2022-05-24
 -->
 
@@ -65,7 +65,7 @@ P04 -- Project Iris | Home Page
             </div>
 
             <div style="background-color: rgb(101, 120, 59); color: white;">Message:</div>
-            <textarea name="message" id="message" maxlength="50" style="width: 100%;"></textarea>
+            <textarea name="message" id="message" maxlength="50" style="width: 100%;">{% if not message == None %}{{message}}{% endif %}</textarea>
             <div style="font-size: x-small; font-style: italic;">Maximum 45 characters<br>Line breaks will be converted to spaces</div><br>
             <button type="button" id="saveNote">Save</button>
             <button type="button" id="finishedNote">Submit</button>
@@ -92,8 +92,10 @@ P04 -- Project Iris | Home Page
     <form action="/newNote" method="POST">
       <input type = "search" id = "stickers" name = "sticker_name">
       <button>Search</button>
+
       <input type = "hidden" name="recipient" id = "recipient">
       <input type = "hidden" name="canvas" id = "canvas">
+      <input type="hidden" name="savedmsg" id="savedmsg">
     </form>
       {% for i in imgs %}
         <image src={{i}} height="100" width="100" class="sticker">
