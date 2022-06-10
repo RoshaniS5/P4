@@ -75,6 +75,7 @@ P04 -- Project Iris
           </form>
           <div id="old_can" value={{canva}}></div>
           </td>
+          
           <td class="canvTD">
             <canvas id="text" width="500" height="500" style="position:absolute" style="pointer-events: none;">
             </canvas>
@@ -83,29 +84,33 @@ P04 -- Project Iris
             <canvas id="bkgd" width="500" height="500">
             </canvas>
           </td>
+
+          <td class="canTD" style="max-width: 350px;">
+            Search for stickers to put on the canvas!
+            <form action="/newNote" method="POST">
+              <input type = "search" id = "stickers" name = "sticker_name">
+              <button>Search</button>
+
+              <input type = "hidden" name="recipient" id = "recipient">
+              <input type = "hidden" name="canvas" id = "canvas">
+              <input type="hidden" name="savedmsg" id="savedmsg">
+            </form>
+              {% for i in imgs %}
+                <image src={{i}} height="100" width="100" class="sticker">
+              {% endfor%}
+            <p id="testing"></p>
+            {% if not isThereKey %}
+            <script>
+              window.alert("Missing or Invalid API key for GIPHY!\nTo fix this, install a new key by following the steps detailed in the API card located in P4's README. Then, add this key to key_giphy.txt located in the keys directory of the app directory.");
+            </script>
+            {% endif %}
+          </td>
+
           </tr>
         </table>
       </div>
 
 
-    Search for stickers to put on the canvas!
-    <form action="/newNote" method="POST">
-      <input type = "search" id = "stickers" name = "sticker_name">
-      <button>Search</button>
-
-      <input type = "hidden" name="recipient" id = "recipient">
-      <input type = "hidden" name="canvas" id = "canvas">
-      <input type="hidden" name="savedmsg" id="savedmsg">
-    </form>
-      {% for i in imgs %}
-        <image src={{i}} height="100" width="100" class="sticker">
-      {% endfor%}
-    <p id="testing"></p>
-    {% if not isThereKey %}
-    <script>
-      window.alert("Missing or Invalid API key for GIPHY!\nTo fix this, install a new key by following the steps detailed in the API card located in P4's README. Then, add this key to key_giphy.txt located in the keys directory of the app directory.");
-    </script>
-    {% endif %}
     <script src="../static/js/canvas.js"></script>
 
   </div>
