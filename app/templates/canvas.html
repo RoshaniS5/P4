@@ -34,10 +34,10 @@ P04 -- Project Iris
           <form id="data" method='GET'>
             <div class="colorOptions">
               <label for="bkgdpicker">Background Color Picker:</label>
-              <input type="color" id="bkgdpicker" value="#ffffff">
+              <input type="color" id="bkgdpicker" value="{{bkgdcol}}">
               <br>
               <label for="txtcolorpicker">Message Color Picker:</label>
-              <input type="color" id="txtcolorpicker">
+              <input type="color" id="txtcolorpicker" value="{{txtcol}}">
               <br>
               <label for="penpicker">Pen Color Picker:</label>
               <input type="color" id="penpicker">
@@ -96,6 +96,8 @@ P04 -- Project Iris
       <input type = "hidden" name="recipient" id = "recipient">
       <input type = "hidden" name="canvas" id = "canvas">
       <input type="hidden" name="savedmsg" id="savedmsg">
+      <input type="hidden" name="savedbkgdcolor" id="savedbkgdcolor">
+      <input type="hidden" name="savedtxtcolor" id="savedtxtcolor">
     </form>
       {% for i in imgs %}
         <image src={{i}} height="100" width="100" class="sticker">

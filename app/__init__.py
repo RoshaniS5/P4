@@ -82,7 +82,10 @@ def notes():
     r = ""
     if request.form.get("recipient") != None:
         r = request.form.get("recipient")
-    return render_template('canvas.html', imgs=imgs, isThereKey=key, recipient=r, message=request.form.get("savedmsg"),canva=request.form.get("canvas"))
+    b = request.form.get("savedbkgdcolor")
+    if b == None:
+        b = "#ffffff"
+    return render_template('canvas.html', imgs=imgs, isThereKey=key, recipient=r, message=request.form.get("savedmsg"),canva=request.form.get("canvas"), bkgdcol=b, txtcol=request.form.get("savedtxtcolor"))
 
 
 def makeClean(input):
