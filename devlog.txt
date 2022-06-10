@@ -139,5 +139,6 @@ roshaniS, yuqingW, angelaZ, hebeH -- 2022-06-10 01:41
   - Changes:
     - Updated templates
     - Updated program components
+    - Updated database organization
     - Updated list of APIs
     - Updated task division
