@@ -12,22 +12,25 @@ Hebe Huang
 
 
 ### Task Division:
-Roshani:  
-- Python/Flask (rendering pages, searching for and sorting notes)  
-- CSS (home and note pages)    
-- Deploying app onto droplet   
-   
-Yuqing:   
-- JS (canvas work for the drawings)  
-- Database (searching for notes)  
-  
-Angela:   
-- HTML files (templates)   
-- Database (storing and sorting notes)   
-   
-Hebe:    
-- CSS (notes and about pages)   
-- Helping out with JS (canvas work)     
+Roshani:
+- Python/Flask (rendering pages, searching for notes, using the PurgoMalum API) 
+- JS (initial work involving drawing on canvas) 
+- Database (storing and searching for notes)
+- Deploying app onto droplet
+
+Yuqing:
+- Python/Flask (sorting notes, using the GIPHY API)
+- JS (dragging stickers onto the canvas, saving notes when searching up stickers)
+- Database (sorting notes)
+
+Angela:
+- HTML files (templates, overall organization of pages)
+- CSS (making the site prettier, designing the navbar, Bootstrap)
+
+Hebe:
+- CSS (making the site prettier, organizing the elements on the new note page, Bootstrap)
+- HTML files (organizing elements on the new note page)
+- JS (saving canvas as an image, adding text on canvas, adjusting pen sizes/colors)     
    
 ## API Cards:
 PurgoMalum (https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_PurgoMalum.md)  
