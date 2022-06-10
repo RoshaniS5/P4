@@ -124,3 +124,20 @@ roshaniS -- 2022-06-08 19:27
 yuqingW -- 2022-06-09 12:47
   - Fixed bugs about clearing text and canvas after searching for stickers. Added a save option so users don't lose their work. Done with js localStorage and remove saved text and canvas after submitting.
   - Changed eraser to white strokes so now users can erase stickers.
+
+yuqingW -- 2022-06-09 22:01
+  - Fixed save option using Flask instead of localStorage
+
+hebeH -- 2022-06-09 22:15
+  - Moved sticker search bar to the right of the canvas
+
+roshaniS -- 2022-06-10 01:41
+  - Added links to demo video and site in readme
+
+roshaniS, yuqingW, angelaZ, hebeH -- 2022-06-10 01:41
+  - Collaborated on revising the design doc
+  - Changes:
+    - Updated templates
+    - Updated program components
+    - Updated list of APIs
+    - Updated task division

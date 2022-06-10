@@ -1,6 +1,9 @@
 # Project Iris by Sleepy Starfish  
 Project Iris is a collection of anonymous drawings with notes like that of The Unsent Project (https://theunsentproject.com/). The Unsent Project is made up of texts that were not sent towards their loved ones, in it you can choose color and a name to send it to. On Project Iris, you can see notes in order of time submission and are also able to search for notes directed towards a certain name. In addition to text, users will be able to attach drawings to their notes.  
 
+[Here](https://www.youtube.com/watch?v=SOPrf7jQW-E) is the link to our demo video.
+[Here](http://67.205.148.205/P4/) is the link to our site.
+
 ## Devos:  
 Roshani Shrestha (PM)  
 Yuqing Wu  
