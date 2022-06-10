@@ -23,8 +23,8 @@ ctx.fillStyle = "black"
 var pen_color = "black"
 var penPicker = document.getElementById("penpicker");
 penPicker.addEventListener("input", function(){
-  ctx.fillStyle = penPicker.value
-  pen_color = penPicker.value
+  ctx.fillStyle = penPicker.value;
+  pen_color = penPicker.value;
 })
 
 var saved_Canvas = document.getElementById("old_can").getAttribute('value');
@@ -244,6 +244,8 @@ var save = () =>{
   document.getElementById("recipient").value = document.getElementById('person').value;
   document.getElementById("canvas").value=c.toDataURL();
   document.getElementById("savedmsg").value = document.getElementById("message").value;
+  document.getElementById("savedbkgdcolor").value = bkgdPicker.value;
+  document.getElementById("savedtxtcolor").value = txtColorPicker.value;
 }
 var saveB = document.getElementById('saveNote');
 saveB.addEventListener('click', save);
