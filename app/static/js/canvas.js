@@ -248,9 +248,10 @@ for(i=0;i<stickers.length;i++){
 }
 
 var save = () =>{
-  localStorage.setItem("can",c.toDataURL());
-  localStorage.setItem("recipient", document.getElementById('person').value);
-  localStorage.setItem("message", document.getElementById("message").value);
+  // localStorage.setItem("can",c.toDataURL());
+  // localStorage.setItem("recipient", document.getElementById('person').value);
+  // localStorage.setItem("message", document.getElementById("message").value);
+  document.getElementById("savedmsg").value = document.getElementById("message").value
 }
 var saveB = document.getElementById('saveNote');
 saveB.addEventListener('click', save);

@@ -78,7 +78,7 @@ def notes():
                                 pass
     except:
         key = False
-    return render_template('canvas.html', imgs=imgs, isThereKey=key)
+    return render_template('canvas.html', imgs=imgs, isThereKey=key, message=request.form.get("savedmsg"))
 
 def makeClean(input):
         '''Purifies text for younger audiences'''
