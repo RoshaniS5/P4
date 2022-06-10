@@ -108,6 +108,10 @@ roshaniS -- 2022-06-07 18:31
   - Added PurgoMalum API pdf to repo and API information to readme
   - Added wsgi file to repo
 
+hebeH -- 2022-06-08 10:20
+  - Started comments (discontinued for making a good demo video)
+  - Made alert to stop someone from submitting a note without a recipient specified first
+
 yuqingW -- 2022-06-08 10:33
   - Now the user can put sticker on canvas with right position (considering users usually drag in the middle of the sticker we manually added the offset). 
 
