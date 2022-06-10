@@ -2,7 +2,7 @@
 // SoftDev Pd2
 // P04 -- Project Iris | Home Page
 // 2022-05-24
-window.onload=()=>{
+
 var c = document.getElementById("can");
 var bg = document.getElementById("bkgd");
 var txt = document.getElementById("text");
@@ -18,25 +18,6 @@ var drawing = false;
 var penSize = 2;
 ctx.lineWidth = 2;
 erasing = false;
-var saved_Canvas = localStorage.getItem("can");
-var saved_person = localStorage.getItem("recipient");
-var saved_message=localStorage.getItem("message");
-console.log(saved_person);
-
-if(saved_person!=null){
-  document.getElementById('person').value=saved_person;
-}
-
-if(saved_message!=null){
-  document.getElementById('message').value=saved_message;
-}
-if (saved_Canvas!=null){
-  var old_can = new Image();
-  old_can.onload=function(){
-  ctx.drawImage(old_can,0,0);
-}
-  old_can.src=saved_Canvas;
-}
 
 ctx.fillStyle = "black"
 var pen_color = "black"
@@ -46,6 +27,18 @@ penPicker.addEventListener("input", function(){
   pen_color = penPicker.value
 })
 
+var saved_Canvas = document.getElementById("old_can").getAttribute('value');
+console.log(document.getElementById("old_can"))
+console.log(document.getElementById("old_can").value)
+console.log(saved_Canvas);
+
+if (saved_Canvas!=undefined){
+  var old_can = new Image();
+  old_can.onload=function(){
+  ctx.drawImage(old_can,0,0);
+}
+  old_can.src=saved_Canvas;
+}
 
 // Change Background Color
 var bkgdPicker = document.getElementById("bkgdpicker");
@@ -248,11 +241,13 @@ for(i=0;i<stickers.length;i++){
 }
 
 var save = () =>{
-  localStorage.setItem("can",c.toDataURL());
-  localStorage.setItem("recipient", document.getElementById('person').value);
-  localStorage.setItem("message", document.getElementById("message").value);
+  //localStorage.setItem("can",c.toDataURL());
+  //localStorage.setItem("recipient", document.getElementById('person').value);
+  //localStorage.setItem("message", document.getElementById("message").value);
+  document.getElementById("recipient").value = document.getElementById('person').value;
+  document.getElementById("canvas").value=c.toDataURL();
+  console.log(document.getElementById("recipient").value);
+
 }
 var saveB = document.getElementById('saveNote');
 saveB.addEventListener('click', save);
-
-}

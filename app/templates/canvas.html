@@ -61,7 +61,7 @@ P04 -- Project Iris | Home Page
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon3" style="background-color: rgb(101, 120, 59); color: white;">To:</span>
               </div>
-              <input type="text" name="person" id="person" maxlength="25">
+              <input type="text" name="person" id="person" maxlength="25" value={{recipient}}>
             </div>
 
             <div style="background-color: rgb(101, 120, 59); color: white;">Message:</div>
@@ -73,7 +73,7 @@ P04 -- Project Iris | Home Page
             this button will trigger js to make and submit another form -->
             <br><br>
           </form>
-
+          <div id="old_can" value={{canva}}></div>
           </td>
           <td class="canvTD">
             <canvas id="text" width="500" height="500" style="position:absolute" style="pointer-events: none;">
@@ -92,6 +92,8 @@ P04 -- Project Iris | Home Page
     <form action="/newNote" method="POST">
       <input type = "search" id = "stickers" name = "sticker_name">
       <button>Search</button>
+      <input type = "hidden" name="recipient" id = "recipient">
+      <input type = "hidden" name="canvas" id = "canvas">
     </form>
       {% for i in imgs %}
         <image src={{i}} height="100" width="100" class="sticker">
