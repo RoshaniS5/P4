@@ -79,7 +79,10 @@ def notes():
     except:
         key = False
 
-    return render_template('canvas.html', imgs=imgs, isThereKey=key, recipient=request.form.get("recipient"), message=request.form.get("savedmsg"),canva=request.form.get("canvas"))
+    r = ""
+    if request.form.get("recipient") != None:
+        r = request.form.get("recipient")
+    return render_template('canvas.html', imgs=imgs, isThereKey=key, recipient=r, message=request.form.get("savedmsg"),canva=request.form.get("canvas"))
 
 
 def makeClean(input):
