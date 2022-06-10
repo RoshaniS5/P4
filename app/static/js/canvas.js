@@ -108,7 +108,7 @@ c.addEventListener("mousemove", function(e){
       ctx.beginPath();
       ctx.moveTo(x, y);
       ctx.lineTo(e.offsetX, e.offsetY);
-      ctx.strokeStyle = "white";
+      ctx.strokeStyle = bkgdPicker.value;
       //ctx.clearRect(x, y, penSize, penSize)
       ctx.stroke();
       ctx.closePath();
