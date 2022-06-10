@@ -243,7 +243,7 @@ for(i=0;i<stickers.length;i++){
 var save = () =>{
   document.getElementById("recipient").value = document.getElementById('person').value;
   document.getElementById("canvas").value=c.toDataURL();
-  document.getElementById("savedmsg").value = document.getElementById("message").value
+  document.getElementById("savedmsg").value = document.getElementById("message").value;
 }
 var saveB = document.getElementById('saveNote');
 saveB.addEventListener('click', save);
